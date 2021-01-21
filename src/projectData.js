@@ -1,5 +1,16 @@
 const projectData = [
   {
+    id: 0,
+    title: "True Test",
+    imageSrc:
+      "https://cdn.pixabay.com/photo/2015/11/17/13/13/bulldog-1047518_960_720.jpg",
+    imageAlt: "An adorable pupper.",
+    description: 'We be runnin\' tests over here like "Whoa Son"!',
+    link: "/demo/testing",
+    moreInfo:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, commodi? Saepe autem enim quam magni fugit modi deserunt tempora et fuga! Exercitationem neque totam quam soluta pariatur similique blanditiis veritatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, doloribus asperiores. Fuga, similique quisquam! Asperiores, voluptatibus sed laborum natus quo, veniam dolor cumque in quibusdam aliquid aliquam atque! Repudiandae, nesciunt!",
+  },
+  {
     id: 1,
     title: "Test 1",
     imageSrc: "https://picsum.photos/seed/jason/300/200",

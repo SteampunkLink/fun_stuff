@@ -5,7 +5,7 @@ import projectData from "./projectData";
 const Projects = () => {
   const [projects, setProjects] = useState(projectData);
   return (
-    <Fragment>
+    <div className="container">
       <header>
         <h1>Fun Stuff by SP Link</h1>
       </header>
@@ -15,7 +15,7 @@ const Projects = () => {
         ))}
       </main>
       <footer></footer>
-    </Fragment>
+    </div>
   );
 };
 
