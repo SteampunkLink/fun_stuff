@@ -1,9 +1,8 @@
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes, FaHome, FaInfoCircle } from "react-icons/fa";
-import DemoRouter from "./DemoRouter";
 
-const Demo = () => {
+const Demo = ({ component: Component, context: Context }) => {
   const [isMenuOpen, ToggleMenu] = useState(false);
   const openMenu = () => {
     ToggleMenu(true);
@@ -27,7 +26,9 @@ const Demo = () => {
           </div>
         </div>
         <div className="content">
-          <DemoRouter />
+          <Context>
+            <Component />
+          </Context>
         </div>
       </div>
       <nav>

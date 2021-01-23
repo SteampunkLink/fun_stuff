@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import Project from "./Project";
-import projectData from "./projectData";
+import projectData from "../projectData";
 
 const Projects = () => {
   const [projects, setProjects] = useState(projectData);

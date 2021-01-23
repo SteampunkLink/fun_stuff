@@ -12,12 +12,12 @@ const projectData = [
   },
   {
     id: 1,
-    title: "Test 1",
+    title: "Retro Weather App",
     imageSrc: "https://picsum.photos/seed/jason/300/200",
     imageAlt: "random",
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio ullam.",
-    link: "#",
+      "Ever get nastalgic for the old Weather Channel updates? The soothing music, waiting to see the latest weather report. No? Just me, huh? Oh well. Maybe you'll enjoy this anyway.",
+    link: "/demo/retroweather",
     moreInfo:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, commodi? Saepe autem enim quam magni fugit modi deserunt tempora et fuga! Exercitationem neque totam quam soluta pariatur similique blanditiis veritatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, doloribus asperiores. Fuga, similique quisquam! Asperiores, voluptatibus sed laborum natus quo, veniam dolor cumque in quibusdam aliquid aliquam atque! Repudiandae, nesciunt!",
   },
@@ -72,6 +72,17 @@ const projectData = [
     imageAlt: "random",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nam atque dolore error mollitia temporibus, officia optio velit quis aliquam laboriosam voluptate inventore praesentium debitis beatae consectetur nostrum voluptatibus iusto.",
+    link: "#",
+    moreInfo:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, commodi? Saepe autem enim quam magni fugit modi deserunt tempora et fuga! Exercitationem neque totam quam soluta pariatur similique blanditiis veritatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, doloribus asperiores. Fuga, similique quisquam! Asperiores, voluptatibus sed laborum natus quo, veniam dolor cumque in quibusdam aliquid aliquam atque! Repudiandae, nesciunt!",
+  },
+  {
+    id: 7,
+    title: "Test 1",
+    imageSrc: "https://picsum.photos/seed/jason/300/200",
+    imageAlt: "random",
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio ullam.",
     link: "#",
     moreInfo:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, commodi? Saepe autem enim quam magni fugit modi deserunt tempora et fuga! Exercitationem neque totam quam soluta pariatur similique blanditiis veritatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, doloribus asperiores. Fuga, similique quisquam! Asperiores, voluptatibus sed laborum natus quo, veniam dolor cumque in quibusdam aliquid aliquam atque! Repudiandae, nesciunt!",
