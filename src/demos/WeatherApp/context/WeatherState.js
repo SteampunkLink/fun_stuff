@@ -29,12 +29,12 @@ const WeatherState = (props) => {
       const res = await axios.get(endpoint);
       const ccDataFormatted = {
         title: res.data.name,
+        main: res.data.weather[0].main,
         temp: Math.round(res.data.main.temp),
         icon: res.data.weather[0].icon,
         humidity: res.data.main.humidity,
         wind: res.data.wind.speed,
       };
-      console.log(ccDataFormatted);
       dispatch({ type: WEATHER_CC_SUCCESS, payload: ccDataFormatted });
     } catch (error) {
       console.log(error);
@@ -48,16 +48,15 @@ const WeatherState = (props) => {
     try {
       const endpoint = `https://api.openweathermap.org/data/2.5/forecast/daily?zip=${zip}&units=imperial&appid=${apiKey}`;
       const res = await axios.get(endpoint);
-      // let tdData = await res.data.json();
       let tdDataFormatted = [];
       for (let x = 1; x < 4; x++) {
         const newData = {
-          hi: res.list[x].temp.max,
-          lo: res.list[x].temp.min,
-          icon: res.list[x].weather[0].icon,
-          desc: res.list[x].weather[0].main,
-          humidity: res.list[x].humidity,
-          wind: res.list[x].speed,
+          hi: res.data.list[x].temp.max,
+          lo: res.data.list[x].temp.min,
+          icon: res.data.list[x].weather[0].icon,
+          desc: res.data.list[x].weather[0].main,
+          humidity: res.data.list[x].humidity,
+          wind: res.data.list[x].speed,
         };
         tdDataFormatted.push(newData);
       }

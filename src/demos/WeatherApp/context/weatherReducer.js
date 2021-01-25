@@ -5,23 +5,23 @@ export const WEATHER_3D_LOAD = "WEATHER_3D_LOAD";
 export const WEATHER_3D_SUCCESS = "WEATHER_3D_SUCCESS";
 export const WEATHER_3D_FAIL = "WEATHER_3D_FAIL";
 
-export default (state, action) => {
+const weatherReducer = (state, action) => {
   switch (action.type) {
     case WEATHER_CC_LOAD:
       return {
         ...state,
-        currentConditionsStatus: "loading",
+        currentConditionStatus: "loading",
       };
     case WEATHER_CC_SUCCESS:
       return {
         ...state,
-        currentConditionsStatus: "success",
+        currentConditionStatus: "success",
         currentConditions: action.payload,
       };
     case WEATHER_CC_FAIL:
       return {
         ...state,
-        currentConditionsStatus: "fail",
+        currentConditionStatus: "fail",
         currentConditions: {},
       };
     case WEATHER_3D_LOAD:
@@ -45,3 +45,5 @@ export default (state, action) => {
       return { ...state };
   }
 };
+
+export default weatherReducer;

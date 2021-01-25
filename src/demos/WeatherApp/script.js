@@ -23,21 +23,21 @@ function nextSlide() {
 //   createCurrentConditions(weatherData);
 // };
 
-const createCurrentConditions = (data) => {
-  const ccTitle = document.getElementById("cc-title");
-  ccTitle.innerText = data.name;
-  const ccTemp = document.getElementById("cc-temp");
-  ccTemp.innerHTML = `${Math.round(data.main.temp)}&#8457;`;
-  const ccImg = document.getElementById("cc-img");
-  ccImg.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`
-  );
-  const ccHumid = document.getElementById("cc-humid");
-  ccHumid.innerText = data.main.humidity;
-  const ccWind = document.getElementById("cc-wind");
-  ccWind.innerText = data.wind.speed;
-};
+// const createCurrentConditions = (data) => {
+//   const ccTitle = document.getElementById("cc-title");
+//   ccTitle.innerText = data.name;
+//   const ccTemp = document.getElementById("cc-temp");
+//   ccTemp.innerHTML = `${Math.round(data.main.temp)}&#8457;`;
+//   const ccImg = document.getElementById("cc-img");
+//   ccImg.setAttribute(
+//     "src",
+//     `http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`
+//   );
+//   const ccHumid = document.getElementById("cc-humid");
+//   ccHumid.innerText = data.main.humidity;
+//   const ccWind = document.getElementById("cc-wind");
+//   ccWind.innerText = data.wind.speed;
+// };
 
 /* three-day-forecast */
 let threeDayForcast;
@@ -49,33 +49,33 @@ let threeDayForcast;
 //   createThreeDayForecast(threeDayForcast);
 // };
 
-const createThreeDayForecast = (data) => {
-  for (let x = 1; x < 4; x++) {
-    const todayDate = new Date(data.list[x].dt * 1000);
-    const tdfTitle = `tdf${x}-title`;
-    document.getElementById(tdfTitle).innerText = days[todayDate.getDay()];
+// const createThreeDayForecast = (data) => {
+//   for (let x = 1; x < 4; x++) {
+//     const todayDate = new Date(data.list[x].dt * 1000);
+//     const tdfTitle = `tdf${x}-title`;
+//     document.getElementById(tdfTitle).innerText = days[todayDate.getDay()];
 
-    const tdfHi = `tdf${x}-hi`;
-    document.getElementById(tdfHi).innerText = `High: ${data.list[x].temp.max}`;
-    const tdfLo = `tdf${x}-lo`;
-    document.getElementById(tdfLo).innerText = `Low: ${data.list[x].temp.min}`;
+//     const tdfHi = `tdf${x}-hi`;
+//     document.getElementById(tdfHi).innerText = `High: ${data.list[x].temp.max}`;
+//     const tdfLo = `tdf${x}-lo`;
+//     document.getElementById(tdfLo).innerText = `Low: ${data.list[x].temp.min}`;
 
-    const tdfImg = `tdf${x}-img`;
-    document
-      .getElementById(tdfImg)
-      .setAttribute(
-        "src",
-        `http://openweathermap.org/img/wn/${data.list[x].weather[0].icon}@4x.png`
-      );
-    const tdfDesc = `tdf${x}-desc`;
-    document.getElementById(tdfDesc).innerText = data.list[x].weather[0].main;
+//     const tdfImg = `tdf${x}-img`;
+//     document
+//       .getElementById(tdfImg)
+//       .setAttribute(
+//         "src",
+//         `http://openweathermap.org/img/wn/${data.list[x].weather[0].icon}@4x.png`
+//       );
+//     const tdfDesc = `tdf${x}-desc`;
+//     document.getElementById(tdfDesc).innerText = data.list[x].weather[0].main;
 
-    const tdfHumid = `tdf${x}-humid`;
-    document.getElementById(tdfHumid).innerText = data.list[x].humidity;
-    const tdfSpeed = `tdf${x}-wind`;
-    document.getElementById(tdfSpeed).innerText = data.list[x].speed;
-  }
-};
+//     const tdfHumid = `tdf${x}-humid`;
+//     document.getElementById(tdfHumid).innerText = data.list[x].humidity;
+//     const tdfSpeed = `tdf${x}-wind`;
+//     document.getElementById(tdfSpeed).innerText = data.list[x].speed;
+//   }
+// };
 
 /* zip.js */
 let activateSlides;
@@ -101,54 +101,54 @@ document.getElementById("zip-input").addEventListener("keydown", (e) => {
 });
 
 // CLOCK
-const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-const months = [
-  "JAN",
-  "FEB",
-  "MAR",
-  "APR",
-  "MAY",
-  "JUN",
-  "JUL",
-  "AUG",
-  "SEP",
-  "OCT",
-  "NOV",
-  "DEC",
-];
+// const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+// const months = [
+//   "JAN",
+//   "FEB",
+//   "MAR",
+//   "APR",
+//   "MAY",
+//   "JUN",
+//   "JUL",
+//   "AUG",
+//   "SEP",
+//   "OCT",
+//   "NOV",
+//   "DEC",
+// ];
 
-const currentTime = () => {
-  let clock = document.getElementById("clock");
-  let calendar = document.getElementById("calendar");
-  let date = new Date();
-  let hour = date.getHours();
-  hour = hour == 0 ? 12 : hour > 12 ? hour - 12 : hour;
-  let min = date.getMinutes();
-  let sec = date.getSeconds();
-  let midday = hour >= 12 ? "PM" : "AM";
+// const currentTime = () => {
+//   let clock = document.getElementById("clock");
+//   let calendar = document.getElementById("calendar");
+//   let date = new Date();
+//   let hour = date.getHours();
+//   hour = hour == 0 ? 12 : hour > 12 ? hour - 12 : hour;
+//   let min = date.getMinutes();
+//   let sec = date.getSeconds();
+//   let midday = hour >= 12 ? "PM" : "AM";
 
-  hour = updateTime(hour);
-  min = updateTime(min);
-  sec = updateTime(sec);
+//   hour = updateTime(hour);
+//   min = updateTime(min);
+//   sec = updateTime(sec);
 
-  let day = days[date.getDay()];
-  let month = months[date.getMonth()];
-  let nDate = date.getDate();
+//   let day = days[date.getDay()];
+//   let month = months[date.getMonth()];
+//   let nDate = date.getDate();
 
-  clock.innerText = `${hour}:${min}:${sec} ${midday}`;
-  calendar.innerText = `${day} ${month} ${nDate}`;
-  let t = setTimeout(currentTime, 1000);
-};
+//   clock.innerText = `${hour}:${min}:${sec} ${midday}`;
+//   calendar.innerText = `${day} ${month} ${nDate}`;
+//   let t = setTimeout(currentTime, 1000);
+// };
 
-const updateTime = (k) => {
-  if (k < 10) {
-    return "0" + k;
-  } else {
-    return k;
-  }
-};
+// const updateTime = (k) => {
+//   if (k < 10) {
+//     return "0" + k;
+//   } else {
+//     return k;
+//   }
+// };
 
-currentTime();
+// currentTime();
 
 /* music */
 let musicPlayer = document.getElementById("music-player");
