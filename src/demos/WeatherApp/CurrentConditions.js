@@ -3,7 +3,7 @@ import React from "react";
 const CurrentConditions = ({ data }) => {
   return (
     <div className="slide-data current-conditions">
-      <h2 id="cc-title">{data.title}</h2>
+      <h2>Current Conditions</h2>
       <div>{data.main}</div>
       <img
         id="cc-img"

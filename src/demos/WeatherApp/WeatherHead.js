@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const WeatherHead = () => {
+const WeatherHead = ({ city }) => {
   const updateTime = (t) => {
     if (t < 10) {
       return "0" + t;
@@ -58,9 +58,8 @@ const WeatherHead = () => {
   return (
     <header id="weather-header">
       <div className="head-container">
-        <img src="RetroWeather.png" alt="Retro Weather Report" />
         <div id="header-title" className="title">
-          Current Conditions
+          {!city ? "Loading..." : `Weather for ${city}`}
         </div>
         <div className="current-time">
           <div id="clock" className="time-1">

@@ -49,8 +49,9 @@ const WeatherState = (props) => {
       const endpoint = `https://api.openweathermap.org/data/2.5/forecast/daily?zip=${zip}&units=imperial&appid=${apiKey}`;
       const res = await axios.get(endpoint);
       let tdDataFormatted = [];
-      for (let x = 1; x < 4; x++) {
+      for (let x = 0; x < 3; x++) {
         const newData = {
+          date: res.data.list[x].dt,
           hi: res.data.list[x].temp.max,
           lo: res.data.list[x].temp.min,
           icon: res.data.list[x].weather[0].icon,

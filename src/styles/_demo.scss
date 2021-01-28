@@ -17,7 +17,6 @@ body {
   transition: 0.5s linear;
   width: 100vw;
   min-height: 100vh;
-  padding: 50px;
 }
 
 .demo-container.show-nav {
@@ -109,25 +108,26 @@ nav ul li + li + li {
   transform: translateX(-200%);
 }
 
-.content img {
+// Testing
+.test-container img {
   max-width: 100%;
 }
 
-.content {
+.test-container {
   max-width: 1000px;
   margin: 50px auto;
 }
 
-.content h1 {
+.test-container h1 {
   margin: 0;
 }
 
-.content small {
+.test-container small {
   color: #555;
   font-style: italic;
 }
 
-.content p {
+.test-container p {
   color: #333;
   line-height: 1.5;
 }

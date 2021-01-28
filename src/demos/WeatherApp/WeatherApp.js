@@ -7,8 +7,11 @@ import ThreeDayForecast from "./ThreeDayForecast";
 import WeatherFoot from "./WeatherFoot";
 import WeatherHead from "./WeatherHead";
 
+import "./Weather.scss";
+
 const WeatherApp = () => {
   const [zipCode, setZipCode] = useState("63146");
+  const [cityName, setCity] = useState("");
   const weatherContext = useContext(WeatherContext);
 
   const slideTitles = ["Current Conditions", "3-Day Forecast"];
@@ -24,6 +27,10 @@ const WeatherApp = () => {
     loadThreeDayForecast,
   } = weatherContext;
 
+  const handleChangeZip = (newZip) => {
+    setZipCode(newZip);
+  };
+
   useEffect(() => {
     loadCurrentConditions(zipCode);
     loadThreeDayForecast(zipCode);
@@ -35,9 +42,14 @@ const WeatherApp = () => {
     }, 9000);
     // eslint-disable-next-line
   }, [zipCode]);
+
+  useEffect(() => {
+    setCity(currentConditions.title);
+  }, [currentConditions]);
+
   return (
     <div id="weather-app">
-      <WeatherHead />
+      <WeatherHead city={cityName} />
       <main id="weather-main">
         <div id="main-container" className="container">
           <div
@@ -62,7 +74,7 @@ const WeatherApp = () => {
           </div>
         </div>
       </main>
-      <WeatherFoot />
+      <WeatherFoot zip={zipCode} changeZip={handleChangeZip} />
     </div>
   );
 };

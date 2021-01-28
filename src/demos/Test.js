@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 
 const Test = () => {
   return (
-    <Fragment>
+    <div className="test-container">
       <h1>Amazing Article</h1>
       <small>Florin Pop</small>
       <p>
@@ -34,7 +34,7 @@ const Test = () => {
         iste in quas! Soluta ratione incidunt aliquid, nostrum reiciendis velit
         illo repellendus.
       </p>
-    </Fragment>
+    </div>
   );
 };
 
