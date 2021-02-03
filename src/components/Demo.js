@@ -1,15 +1,22 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes, FaHome, FaInfoCircle } from "react-icons/fa";
+import Modal from "./Modal";
+import projectData from "../projectData";
 
 const Demo = ({ component: Component, context: Context }) => {
-  const [isMenuOpen, ToggleMenu] = useState(false);
-  const openMenu = () => {
-    ToggleMenu(true);
+  const [isMenuOpen, toggleMenu] = useState(false);
+  const [modalClass, toggleModal] = useState("modal modal-close");
+  const [project, setProject] = useState({});
+  const handleDismiss = () => {
+    toggleModal("modal modal-close");
   };
-  const closeMenu = () => {
-    ToggleMenu(false);
-  };
+  useEffect(() => {
+    const currProject = projectData.filter(
+      (project) => project.link === window.location.pathname
+    );
+    setProject(currProject[0]);
+  }, []);
   return (
     <Fragment>
       <div
@@ -17,10 +24,10 @@ const Demo = ({ component: Component, context: Context }) => {
       >
         <div className="circle-container">
           <div className="circle">
-            <button id="close" onClick={closeMenu}>
+            <button id="close" onClick={() => toggleMenu(false)}>
               <FaTimes />
             </button>
-            <button id="open" onClick={openMenu}>
+            <button id="open" onClick={() => toggleMenu(true)}>
               <FaBars />
             </button>
           </div>
@@ -31,7 +38,7 @@ const Demo = ({ component: Component, context: Context }) => {
           </Context>
         </div>
       </div>
-      <nav>
+      <nav className="demo-menu">
         <ul>
           <li>
             <Link to="/">
@@ -40,11 +47,18 @@ const Demo = ({ component: Component, context: Context }) => {
             </Link>
           </li>
           <li>
-            <FaInfoCircle />
-            More Info
+            <button onClick={() => toggleModal("modal")}>
+              <FaInfoCircle />
+              More Info
+            </button>
           </li>
         </ul>
       </nav>
+      <Modal
+        modalClass={modalClass}
+        dismissMenu={handleDismiss}
+        project={project}
+      />
     </Fragment>
   );
 };

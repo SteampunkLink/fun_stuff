@@ -35,11 +35,15 @@ const WeatherApp = () => {
     loadCurrentConditions(zipCode);
     loadThreeDayForecast(zipCode);
 
-    setInterval(() => {
+    const changeSlides = setInterval(() => {
       count++;
       const next = count % slideTitles.length;
       setActiveSlide(next);
     }, 9000);
+
+    return () => {
+      clearInterval(changeSlides);
+    };
     // eslint-disable-next-line
   }, [zipCode]);
 
