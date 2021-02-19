@@ -8,6 +8,8 @@ import Test from "./demos/Test";
 import WeatherApp from "./demos/WeatherApp/WeatherApp";
 import WeatherState from "./demos/WeatherApp/context/WeatherState";
 
+import ScratchCardApp from "./demos/ScratchCards/ScratchCardApp";
+
 function App() {
   return (
     <div className="App">
@@ -19,6 +21,11 @@ function App() {
             component={WeatherApp}
             context={WeatherState}
             path="/demo/retroweather"
+          />
+          <Demo
+            component={ScratchCardApp}
+            context={Fragment}
+            path="/demo/scratchcard"
           />
         </Switch>
       </Router>

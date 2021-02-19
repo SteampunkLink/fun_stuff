@@ -23,12 +23,12 @@ const projectData = [
   },
   {
     id: 2,
-    title: "Test 2",
+    title: "Nintendo Scratch Cards",
     imageSrc: "https://picsum.photos/seed/trini/300/200",
     imageAlt: "random",
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio ullam minima dolor iure et eum molestias. Laboriosam sunt iure, ducimus omnis dolor molestias odit asperiores maiores quibusdam, neque fugit eum.",
-    link: "#",
+      "I bought so many packs of these old Nintendo scratch-off game cards, but they were so old that they can no longer be scratched without damaging the card. Oh well, lemons into lemonade. Now you can play these games digitally and experience what they would have been like. Even better, these are replayable because the scratch-off spaces are randomized.",
+    link: "/demo/scratchcard",
     moreInfo:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, commodi? Saepe autem enim quam magni fugit modi deserunt tempora et fuga! Exercitationem neque totam quam soluta pariatur similique blanditiis veritatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, doloribus asperiores. Fuga, similique quisquam! Asperiores, voluptatibus sed laborum natus quo, veniam dolor cumque in quibusdam aliquid aliquam atque! Repudiandae, nesciunt!",
   },
