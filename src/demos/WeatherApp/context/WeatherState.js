@@ -42,7 +42,7 @@ const WeatherState = (props) => {
     }
   };
 
-  // load current conditions
+  // load three day forecast
   const loadThreeDayForecast = async (zip) => {
     dispatch({ type: WEATHER_3D_LOAD });
     try {

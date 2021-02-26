@@ -9,6 +9,7 @@ import WeatherApp from "./demos/WeatherApp/WeatherApp";
 import WeatherState from "./demos/WeatherApp/context/WeatherState";
 
 import ScratchCardApp from "./demos/ScratchCards/ScratchCardApp";
+import ScratchState from "./demos/ScratchCards/context/ScratchState";
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
           />
           <Demo
             component={ScratchCardApp}
-            context={Fragment}
+            context={ScratchState}
             path="/demo/scratchcard"
           />
         </Switch>

@@ -1,6 +1,8 @@
 const cardData = [
   {
-    name: "Zelda Screen 6",
+    id: "lz6",
+    game: "The Legend of Zelda",
+    screen: 6,
     type: "long",
     background: "ZeldaScreen6.jpg",
     instructions: "ZeldaInst6.jpg",
@@ -9,38 +11,10 @@ const cardData = [
       ["sword", "sword", "sword", "patras", "patras", "patras", "patras"],
     ],
     locations: [
-      [
-        11,
-        22.6,
-        30.4,
-        33.4,
-        31.5,
-        30.3,
-        20.7,
-        76.1,
-        67,
-        57.9,
-        59,
-        60.6,
-        68,
-        77.5,
-      ],
-      [
-        19,
-        6.9,
-        3,
-        3.9,
-        5.3,
-        6.6,
-        -0.1,
-        -62.6,
-        -71,
-        -74.8,
-        -72,
-        -70.5,
-        -73.4,
-        -83.2,
-      ],
+      [55, 111, 152, 166, 157, 151, 103, 381, 334, 287, 293, 303, 340, 388],
+      [67, 20, 5, 8, 11, 12, -12, -237, -270, -285, -276, -273, -284, -323],
     ],
   },
 ];
+
+export default cardData;
