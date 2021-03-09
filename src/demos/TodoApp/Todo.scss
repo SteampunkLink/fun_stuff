@@ -1,0 +1,124 @@
+.todo_body {
+  background: #ccc;
+  color: #333;
+  height: 100vh;
+  width: 100vw;
+}
+
+.todo_head {
+  background: #333;
+  color: #ccc;
+  display: flex;
+  flex-direction: row;
+  height: 20%;
+  justify-content: center;
+  text-align: center;
+}
+
+.todo_head-btn,
+.todo_head-input {
+  border-radius: 10px;
+  font-size: 1.2em;
+  margin: 6px;
+  padding: 5px;
+}
+
+.todo_projectslist {
+  width: 75%;
+}
+
+.todo_projectsoption {
+  width: 25%;
+}
+
+.todo_projectoptions-btns {
+  display: flex;
+  flex-direction: row;
+  button {
+    font-size: 0.9em;
+  }
+}
+
+.todo_head-input {
+  color: #333;
+  width: 90%;
+}
+
+.todo_main {
+  display: flex;
+  flex-direction: row;
+  height: 80%;
+}
+
+.todo_meter-area {
+  background: #fff;
+  height: 100%;
+  width: 30%;
+}
+
+.meter {
+  background: #ddd;
+  border: 2px #333 solid;
+  border-radius: 65px;
+  height: 80%;
+  margin: 5px auto;
+  width: 135px;
+}
+
+.todo_list {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+[class^="todo_task-"] {
+  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  height: 30%;
+  margin: 15px auto;
+  width: 90%;
+}
+
+.todo_task-top {
+  background-color: rgb(130, 192, 179);
+  border: 2px rgb(17, 102, 84) solid;
+  .task-item {
+    background-color: rgb(61, 139, 122);
+  }
+}
+
+.todo_task-middle {
+  background-color: rgb(191, 192, 130);
+  border: 2px rgb(107, 109, 21) solid;
+  .task-item {
+    background-color: rgb(135, 136, 60);
+  }
+}
+.todo_task-bottom {
+  background-color: rgb(192, 130, 187);
+  border: 2px rgb(119, 34, 112) solid;
+  .task-item {
+    background-color: rgb(153, 63, 145);
+  }
+}
+
+.task-item {
+  align-items: center;
+  box-shadow: 5px 5px 2px 3px #000000;
+  border-radius: 25px;
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  height: 75%;
+  justify-content: center;
+  margin: 20px;
+  width: 30%;
+  div button {
+    cursor: pointer;
+    height: 30px;
+    padding: 5px;
+    width: 30px;
+  }
+}

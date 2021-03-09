@@ -2,6 +2,7 @@ import React, { useReducer } from "react";
 import axios from "axios";
 import WeatherContext from "./weatherContext";
 import weatherReducer, {
+  SET_COORDINATES,
   WEATHER_CC_LOAD,
   WEATHER_CC_SUCCESS,
   WEATHER_CC_FAIL,
@@ -13,6 +14,7 @@ const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
 
 const WeatherState = (props) => {
   const initialState = {
+    coordinates: {},
     currentConditionStatus: "loading",
     currentConditions: {},
     threeDayForecastStatus: "loading",
@@ -20,6 +22,11 @@ const WeatherState = (props) => {
   };
 
   const [state, dispatch] = useReducer(weatherReducer, initialState);
+
+  // set coordinates for api calls
+  const setCoordinates = (lon, lat) => {
+    dispatch({ type: SET_COORDINATES, payload: { lon, lat } });
+  };
 
   // load current conditions
   const loadCurrentConditions = async (zip) => {
@@ -35,6 +42,8 @@ const WeatherState = (props) => {
         humidity: res.data.main.humidity,
         wind: res.data.wind.speed,
       };
+      console.log(res.data);
+      setCoordinates(res.data.coord.lon, res.data.coord.lat);
       dispatch({ type: WEATHER_CC_SUCCESS, payload: ccDataFormatted });
     } catch (error) {
       console.log(error);
@@ -71,10 +80,12 @@ const WeatherState = (props) => {
   return (
     <WeatherContext.Provider
       value={{
+        coordinates: state.coordinates,
         currentConditionStatus: state.currentConditionStatus,
         currentConditions: state.currentConditions,
         threeDayForecastStatus: state.threeDayForecastStatus,
         threeDayForecast: state.threeDayForecast,
+        setCoordinates,
         loadCurrentConditions,
         loadThreeDayForecast,
       }}

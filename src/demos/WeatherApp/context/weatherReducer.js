@@ -1,3 +1,4 @@
+export const SET_COORDINATES = "SET_COORDINATES";
 export const WEATHER_CC_LOAD = "WEATHER_CC_LOAD";
 export const WEATHER_CC_SUCCESS = "WEATHER_CC_SUCCESS";
 export const WEATHER_CC_FAIL = "WEATHER_CC_FAIL";
@@ -7,6 +8,11 @@ export const WEATHER_3D_FAIL = "WEATHER_3D_FAIL";
 
 const weatherReducer = (state, action) => {
   switch (action.type) {
+    case SET_COORDINATES:
+      return {
+        ...state,
+        coordinates: action.payload,
+      };
     case WEATHER_CC_LOAD:
       return {
         ...state,

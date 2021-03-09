@@ -19,6 +19,7 @@ const WeatherApp = () => {
   let count = 0;
 
   const {
+    coordinates,
     currentConditionStatus,
     currentConditions,
     threeDayForecastStatus,
@@ -50,6 +51,10 @@ const WeatherApp = () => {
   useEffect(() => {
     setCity(currentConditions.title);
   }, [currentConditions]);
+
+  useEffect(() => {
+    console.log(coordinates);
+  }, [coordinates]);
 
   return (
     <div id="weather-app">

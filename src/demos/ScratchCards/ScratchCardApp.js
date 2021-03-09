@@ -14,10 +14,12 @@ const ScratchCardApp = () => {
 
   useEffect(() => {
     createCardList();
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
     selectCard(selectedCardId);
+    // eslint-disable-next-line
   }, [selectedCardId]);
 
   return (
@@ -26,7 +28,7 @@ const ScratchCardApp = () => {
         <div className="scratch-nav">
           <ul>
             {cardList.map((card) => (
-              <button key={card.id} onClick={() => selectCard(card.id)}>
+              <button key={card.id} onClick={() => setSelectedCard(card.id)}>
                 {card.title}
               </button>
             ))}

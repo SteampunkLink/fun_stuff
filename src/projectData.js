@@ -34,12 +34,12 @@ const projectData = [
   },
   {
     id: 3,
-    title: "Test 3",
+    title: "ToDo App",
     imageSrc: "https://picsum.photos/seed/kimberly/300/200",
     imageAlt: "random",
     description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus natus voluptates architecto distinctio excepturi repellat eum minima numquam adipisci animi. Dignissimos eligendi iste quisquam quam cum facere! Exercitationem, assumenda aperiam?",
-    link: "#",
+      "Yeah yeah, EVERY entry level coder has a simple todo app in their portfolio. I thought I'd make something a little more interesting that the average todo list.",
+    link: "/demo/todo",
     moreInfo:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, commodi? Saepe autem enim quam magni fugit modi deserunt tempora et fuga! Exercitationem neque totam quam soluta pariatur similique blanditiis veritatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, doloribus asperiores. Fuga, similique quisquam! Asperiores, voluptatibus sed laborum natus quo, veniam dolor cumque in quibusdam aliquid aliquam atque! Repudiandae, nesciunt!",
   },
