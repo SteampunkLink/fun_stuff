@@ -57,12 +57,37 @@
 }
 
 .meter {
-  background: #ddd;
   border: 2px #333 solid;
   border-radius: 65px;
   height: 80%;
   margin: 5px auto;
+  overflow: hidden;
+  position: relative;
   width: 135px;
+  .completed {
+    background: rgb(130, 192, 179);
+    bottom: 0;
+    height: 0;
+    position: absolute;
+    transition: 0.3s ease;
+    width: 100%;
+  }
+  .remaining {
+    background: rgb(192, 130, 187);
+    top: 0;
+    height: 0;
+    position: absolute;
+    transition: 0.3s ease;
+    width: 100%;
+  }
+}
+
+.meter-empty {
+  background: #ddd;
+}
+
+.meter-full {
+  background-color: rgb(191, 192, 130);
 }
 
 .todo_list {

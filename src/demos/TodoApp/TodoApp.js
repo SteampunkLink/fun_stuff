@@ -31,7 +31,7 @@ const TodoApp = () => {
         displayedProject={displayedProject}
       />
       <div className="todo_main">
-        <TodoMeter />
+        <TodoMeter displayedTasks={displayedTasks} />
         <TaskList displayedTasks={displayedTasks} />
       </div>
       <footer>Create New</footer>
