@@ -135,27 +135,3 @@ nav ul li + li + li {
   margin-left: 30px;
   transform: translateX(-200%);
 }
-
-// Testing
-.test-container img {
-  max-width: 100%;
-}
-
-.test-container {
-  max-width: 1000px;
-  margin: 50px auto;
-}
-
-.test-container h1 {
-  margin: 0;
-}
-
-.test-container small {
-  color: #555;
-  font-style: italic;
-}
-
-.test-container p {
-  color: #333;
-  line-height: 1.5;
-}

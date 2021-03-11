@@ -1,47 +1,36 @@
 const projectData = [
   {
-    id: 0,
-    title: "True Test",
-    imageSrc:
-      "https://cdn.pixabay.com/photo/2015/11/17/13/13/bulldog-1047518_960_720.jpg",
-    imageAlt: "An adorable pupper.",
-    description: 'We be runnin\' tests over here like "Whoa Son"!',
-    link: "/demo/testing",
-    moreInfo:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, commodi? Saepe autem enim quam magni fugit modi deserunt tempora et fuga! Exercitationem neque totam quam soluta pariatur similique blanditiis veritatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, doloribus asperiores. Fuga, similique quisquam! Asperiores, voluptatibus sed laborum natus quo, veniam dolor cumque in quibusdam aliquid aliquam atque! Repudiandae, nesciunt!",
-  },
-  {
     id: 1,
     title: "Retro Weather App",
-    imageSrc: "https://picsum.photos/seed/jason/300/200",
+    imageSrc: "/screenShots/weatherScreen.png",
     imageAlt: "random",
     description:
       "Ever get nastalgic for the old Weather Channel updates? The soothing music, waiting to see the latest weather report. No? Just me, huh? Oh well. Maybe you'll enjoy this anyway.",
     link: "/demo/retroweather",
     moreInfo:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, commodi? Saepe autem enim quam magni fugit modi deserunt tempora et fuga! Exercitationem neque totam quam soluta pariatur similique blanditiis veritatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, doloribus asperiores. Fuga, similique quisquam! Asperiores, voluptatibus sed laborum natus quo, veniam dolor cumque in quibusdam aliquid aliquam atque! Repudiandae, nesciunt!",
+      "I thought it would be fun to recreate the look of the old Local Forecast from the Weather Channel from the early 90s. You can enter your 5-digit zip code in the input field in the bottom right corner to get your local weather, though only US postal codes will work right now. Sorry. You can also use the switch next to the music note to turn on some smooth tunes. Right now it only plays Winelight by Grover Washington Jr. I'll probably change this to some vaporwave later. \n\nWeather data comes from OpenWeatherMap's API. As of this writing, there are only two slides. I'd like to create more, but API calls get to be a bit pricey and I'm worried too many more will cause the site to burn through my allowance at the free tier. I may try to find other, non-weather-related things later. I'd also like to create a toggle to add voice later.",
   },
   {
     id: 2,
     title: "Nintendo Scratch Cards",
-    imageSrc: "https://picsum.photos/seed/trini/300/200",
+    imageSrc: "/screenShots/scratchScreen.png",
     imageAlt: "random",
     description:
-      "I bought so many packs of these old Nintendo scratch-off game cards, but they were so old that they can no longer be scratched without damaging the card. Oh well, lemons into lemonade. Now you can play these games digitally and experience what they would have been like. Even better, these are replayable because the scratch-off spaces are randomized.",
+      "Relive the fun of old scratch-off card games from Nintendo digitally and experience what they would have been like. Even better, these are replayable because the scratch-off spaces are randomized.",
     link: "/demo/scratchcard",
     moreInfo:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, commodi? Saepe autem enim quam magni fugit modi deserunt tempora et fuga! Exercitationem neque totam quam soluta pariatur similique blanditiis veritatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, doloribus asperiores. Fuga, similique quisquam! Asperiores, voluptatibus sed laborum natus quo, veniam dolor cumque in quibusdam aliquid aliquam atque! Repudiandae, nesciunt!",
+      "I bought a bunch of these old Nintendo collector's cards that were released in the 80s that had never been opened. Unfortunately, I soon discovered, that the cards no longer worked as they were so old, it was impossible to scratch off the substance concealing the game icons without damaging the card. That's when I had the idea to make this. Not only can you get a sense of how the game played, the solutions get randomized so it's a different experience each time. Right now there is only one card available, but I will scan more very soon.",
   },
   {
     id: 3,
     title: "ToDo App",
-    imageSrc: "https://picsum.photos/seed/kimberly/300/200",
+    imageSrc: "/screenShots/todoScreen.png",
     imageAlt: "random",
     description:
       "Yeah yeah, EVERY entry level coder has a simple todo app in their portfolio. I thought I'd make something a little more interesting that the average todo list.",
     link: "/demo/todo",
     moreInfo:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, commodi? Saepe autem enim quam magni fugit modi deserunt tempora et fuga! Exercitationem neque totam quam soluta pariatur similique blanditiis veritatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, doloribus asperiores. Fuga, similique quisquam! Asperiores, voluptatibus sed laborum natus quo, veniam dolor cumque in quibusdam aliquid aliquam atque! Repudiandae, nesciunt!",
+      'The inspiration for this struck me while working on a project from Brad Traversy in his 50 Projects Udemy course. In the project "Drink Water" the user can keep track of how much water they\'ve drank in a day by clicking on an individual glass for each glass they drink. This empties the small glass and fills up a larger one which dynamically calculates the percentage of overall water the user has drank in relation to how much they should drink. I took that concept and applied it to a to-do list which can store multiple projects. Each project can be populated with a number of tasks which all start out unfinished. The user can move them up to "in progress" and later to "finished" and the meter to the left will fill up with the proper color and give the user a percentage of tasks completed. Be aware that this sample app is a proof-of-concept and will not save data if you leave.',
   },
   {
     id: 4,
@@ -50,39 +39,6 @@ const projectData = [
     imageAlt: "random",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas saepe blanditiis inventore laboriosam! Libero, aliquam repellat laborum fugit voluptate officiis praesentium nihil nam ea porro temporibus, repellendus, quaerat assumend quibusdam?",
-    link: "#",
-    moreInfo:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, commodi? Saepe autem enim quam magni fugit modi deserunt tempora et fuga! Exercitationem neque totam quam soluta pariatur similique blanditiis veritatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, doloribus asperiores. Fuga, similique quisquam! Asperiores, voluptatibus sed laborum natus quo, veniam dolor cumque in quibusdam aliquid aliquam atque! Repudiandae, nesciunt!",
-  },
-  {
-    id: 5,
-    title: "Test 5",
-    imageSrc: "https://picsum.photos/seed/billy/300/200",
-    imageAlt: "random",
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis dolorum molestias perferendis ea, ratione dolorem. Dolor, reiciendis mollitia fugiat laudantium cupiditate voluptatem? Error enim quidem nemo quae debitis ipsum velit?",
-    link: "#",
-    moreInfo:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, commodi? Saepe autem enim quam magni fugit modi deserunt tempora et fuga! Exercitationem neque totam quam soluta pariatur similique blanditiis veritatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, doloribus asperiores. Fuga, similique quisquam! Asperiores, voluptatibus sed laborum natus quo, veniam dolor cumque in quibusdam aliquid aliquam atque! Repudiandae, nesciunt!",
-  },
-  {
-    id: 6,
-    title: "Test 6",
-    imageSrc: "https://picsum.photos/seed/tommy/300/200",
-    imageAlt: "random",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nam atque dolore error mollitia temporibus, officia optio velit quis aliquam laboriosam voluptate inventore praesentium debitis beatae consectetur nostrum voluptatibus iusto.",
-    link: "#",
-    moreInfo:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, commodi? Saepe autem enim quam magni fugit modi deserunt tempora et fuga! Exercitationem neque totam quam soluta pariatur similique blanditiis veritatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, doloribus asperiores. Fuga, similique quisquam! Asperiores, voluptatibus sed laborum natus quo, veniam dolor cumque in quibusdam aliquid aliquam atque! Repudiandae, nesciunt!",
-  },
-  {
-    id: 7,
-    title: "Test 1",
-    imageSrc: "https://picsum.photos/seed/jason/300/200",
-    imageAlt: "random",
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio ullam.",
     link: "#",
     moreInfo:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, commodi? Saepe autem enim quam magni fugit modi deserunt tempora et fuga! Exercitationem neque totam quam soluta pariatur similique blanditiis veritatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, doloribus asperiores. Fuga, similique quisquam! Asperiores, voluptatibus sed laborum natus quo, veniam dolor cumque in quibusdam aliquid aliquam atque! Repudiandae, nesciunt!",
