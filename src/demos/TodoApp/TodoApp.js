@@ -21,6 +21,7 @@ const TodoApp = () => {
 
   useEffect(() => {
     filterTasks(displayedProject);
+    // eslint-disable-next-line
   }, [displayedProject, updateTask, deleteTask, addNewTask]);
 
   return (

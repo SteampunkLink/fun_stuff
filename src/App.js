@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.scss";
 import Projects from "./components/Projects.js";
@@ -11,6 +12,8 @@ import ScratchState from "./demos/ScratchCards/context/ScratchState";
 
 import TodoApp from "./demos/TodoApp/TodoApp";
 import TodoState from "./demos/TodoApp/context/TodoState";
+
+import PogApp from "./demos/PogApp/PogApp";
 
 function App() {
   return (
@@ -29,6 +32,7 @@ function App() {
             path="/demo/scratchcard"
           />
           <Demo component={TodoApp} context={TodoState} path="/demo/todo" />
+          <Demo component={PogApp} context={Fragment} path="/demo/caps" />
         </Switch>
       </Router>
     </div>

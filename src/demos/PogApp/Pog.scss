@@ -1,0 +1,36 @@
+.pog-app {
+  background: coral;
+  color: teal;
+  height: 100vh;
+  text-align: center;
+  width: 100vw;
+  h1 {
+    padding: 25px;
+  }
+}
+
+.pog-section-container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 12px auto;
+  width: 90vw;
+}
+
+.pog-section {
+  background: black;
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+  flex: 0.15;
+  height: 70vh;
+  margin: 10px;
+  position: relative;
+  transition: flex 0.7s ease-in;
+  width: 150px;
+}
+
+.pog-section.active {
+  flex: 4;
+}

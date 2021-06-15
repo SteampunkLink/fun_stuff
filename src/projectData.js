@@ -34,6 +34,17 @@ const projectData = [
   },
   {
     id: 4,
+    title: "Generic Milk Cap Game",
+    imageSrc: "https://picsum.photos/seed/pogs/300/200",
+    imageAlt: "random",
+    description:
+      "Relive a little bit of the joy of playing a game of p... I mean, um milk caps. So it's mostly just a clicker game here, but did anyone actually play the game as much as they just collected the little discs anyway?",
+    link: "/demo/caps",
+    moreInfo:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, commodi? Saepe autem enim quam magni fugit modi deserunt tempora et fuga! Exercitationem neque totam quam soluta pariatur similique blanditiis veritatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, doloribus asperiores. Fuga, similique quisquam! Asperiores, voluptatibus sed laborum natus quo, veniam dolor cumque in quibusdam aliquid aliquam atque! Repudiandae, nesciunt!",
+  },
+  {
+    id: 5,
     title: "Test 4",
     imageSrc: "https://picsum.photos/seed/zack/300/200",
     imageAlt: "random",
