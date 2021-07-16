@@ -1,0 +1,55 @@
+.junk-container {
+  background: url("./img/classic-mac-os-tile-wallpapers-7.png");
+  background-repeat: repeat;
+  height: 100vh;
+  width: 100%;
+  .junk-header {
+    background: darkslategray;
+    color: white;
+    text-align: center;
+  }
+  .junk-main {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+  }
+}
+
+.junk-menu {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.6em;
+  margin-top: 75px;
+  width: 15%;
+  .menu-item {
+    background-color: chocolate;
+    color: black;
+    margin: 15px 0; 
+    padding: 10px;
+  }
+}
+
+.junk-drawer {
+  background: rgba(0,0,0,0.3);
+  width: 85%;
+}
+
+.widget {
+  background: peachpuff;
+  color: darkviolet;
+}
+
+.widget-calculator {
+  height: 300px;
+  max-width: 250px;
+}
+
+.widget-weather {
+  height: 200px;
+  width: 500px;
+}
+
+.widget-clock {
+  height: 250px;
+  width: 250px;
+}
