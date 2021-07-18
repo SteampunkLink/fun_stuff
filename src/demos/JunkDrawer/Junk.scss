@@ -40,8 +40,53 @@
 }
 
 .widget-calculator {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   height: 300px;
   max-width: 250px;
+  .calc-row {
+    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    padding: 6px;
+    button {
+      cursor: pointer;
+      display: inline-block;
+      font-size: 1.5em;
+      height: 40px;
+      margin: 4px;
+      text-align: center;
+      width: 40px;
+    }
+    input {
+      font-size: 1.5em;
+      margin: 8px auto 0;
+      text-align: right;
+      width: 90%;
+    }
+    .redButton {
+      background-color: #F01A33;
+    }
+    .greenButton {
+      background-color: #1AF021;
+    }
+    .blueButton {
+      background-color: #5EA4F2;
+    }
+    .yellowButton {
+      background-color: #F2E15E;
+    }
+    .purpleButton {
+      background-color: #F25EB9;
+    }
+    .greyButton {
+      background-color: #ADADAD;
+    }
+    .darkButton {
+      background-color: #696969;
+    }
+  }
 }
 
 .widget-weather {
@@ -52,4 +97,90 @@
 .widget-clock {
   height: 250px;
   width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  
+  .clock {
+    position: relative;
+    width: 200px;
+    height: 200px;
+  }
+  
+  .needle {
+    background-color: var(--primary-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 45px;
+    width: 3px;
+    transform-origin: bottom center;
+    transition: all 0.5s ease-in;
+  }
+  
+  .needle.hour {
+    transform: translate(-50%, -100%) rotate(0deg);
+    background-color: firebrick;
+  }
+  
+  .needle.minute {
+    transform: translate(-50%, -100%) rotate(0deg);
+    height: 85px;
+    background-color: forestgreen;
+  }
+  
+  .needle.second {
+    transform: translate(-50%, -100%) rotate(0deg);
+    height: 85px;
+    background-color: dodgerblue;
+  }
+  
+  .center-point {
+    background-color: #e74c3c;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+  }
+  
+  .center-point::after {
+    content: "";
+    background-color: var(--primary-color);
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+  }
+  
+  .time {
+    font-size: 60px;
+  }
+  
+  .date {
+    color: darkviolet;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+  
+  .date .circle {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 50%;
+    height: 18px;
+    width: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 18px;
+    transition: 0.5s ease-in;
+    font-size: 12px;
+  }
 }
