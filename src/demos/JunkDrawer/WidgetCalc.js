@@ -117,7 +117,7 @@ const WidgetCalc = () => {
       <div className="widget widget-calculator">
 
         <div className="calc-row">
-          <input type="text" className="form-control display center-block text-right" readonly value={calcData.display} />
+          <input type="text" className="form-control display center-block text-right" readOnly value={calcData.display} />
         </div>
 
         <div className="calc-row">

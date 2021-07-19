@@ -66,29 +66,29 @@ const WidgetClock = () => {
   return (
     <Draggable>
       <div className="widget widget-clock">
-        <div class="clock">
-          <div class="needle hour" style={{ 
+        <div className="clock">
+          <div className="needle hour" style={{ 
             transform: `translate(-50%, -100%) 
               rotate(${scale(currentTime.hoursForClock * 60 + currentTime.minutes, 0, 720, 0, 360)}deg)`,
             transition: `${currentTime.hours === 0 ? "none" : "all 0.5s ease-in"}`
           }}></div>
-          <div class="needle minute" style={{ 
+          <div className="needle minute" style={{ 
             transform: `translate(-50%, -100%) 
               rotate(${scale(currentTime.minutes, 0, 60, 0, 360)}deg)`,
             transition: `${currentTime.minutes === 0 ? "none" : "all 0.5s ease-in"}`
           }}></div>
-          <div class="needle second" style={{ 
+          <div className="needle second" style={{ 
             transform: `translate(-50%, -100%) 
               rotate(${scale(currentTime.seconds, 0, 60, 0, 360)}deg)`,
             transition: `${currentTime.seconds === 0 ? "none" : "all 0.5s ease-in"}`
           }}></div>
-          <div class="center-point"></div>
+          <div className="center-point"></div>
         </div>
 
-        <div class="time">
-          { currentTime.hoursForClock }:{ currentTime.minutes < 10 ? `0${currentTime.minutes}` : currentTime.minutes }
+        <div className="time">
+          { currentTime.hoursForClock === 0 ? "12" : currentTime.hoursForClock }:{ currentTime.minutes < 10 ? `0${currentTime.minutes}` : currentTime.minutes }
         </div>
-        <div class="date">{ currentTime.day }, { currentTime.month } <span class="circle">{currentTime.date}</span></div>
+        <div className="date">{ currentTime.day }, { currentTime.month } <span className="circle">{currentTime.date}</span></div>
       </div>
     </Draggable>
   )

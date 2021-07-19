@@ -35,7 +35,7 @@ function App() {
           />
           <Demo component={TodoApp} context={TodoState} path="/demo/todo" />
           <Demo component={PogApp} context={Fragment} path="/demo/caps" />
-          <Demo component={JunkDrawerApp} context={Fragment} path="/demo/junkdrawer" />
+          <Demo component={JunkDrawerApp} context={WeatherState} path="/demo/junkdrawer" />
         </Switch>
       </Router>
     </div>

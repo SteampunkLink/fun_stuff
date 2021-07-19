@@ -92,6 +92,30 @@
 .widget-weather {
   height: 200px;
   width: 500px;
+  .widget-weather-header {
+    display: flex;
+    flex-direction: row;
+    h3 {
+      font-weight: bold;
+      padding: 5px;
+      text-align: center;
+    }
+    input {
+      width: 30%;
+    }
+  }
+  .widget-weather-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .five-day-forecast-box {
+      text-align: center;
+      width: 19%;
+      img {
+        width: 100%;
+      }
+    }
+  }
 }
 
 .widget-clock {
