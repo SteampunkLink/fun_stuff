@@ -1,0 +1,419 @@
+.junk-container {
+  background: url("./img/classic-mac-os-tile-wallpapers-7.png");
+  background-repeat: repeat;
+  height: 100vh;
+  width: 100%;
+  .junk-header {
+    background: darkslategray;
+    color: white;
+    height: 8%;
+    text-align: center;
+  }
+  .junk-main {
+    display: flex;
+    flex-direction: row;
+    height: 92%;
+  }
+}
+
+.junk-menu {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.6em;
+  margin-top: 75px;
+  width: 15%;
+  .menu-item {
+    background-color: chocolate;
+    color: black;
+    margin: 15px 0; 
+    padding: 10px;
+  }
+}
+
+.junk-drawer {
+  background: rgba(0,0,0,0.3);
+  width: 85%;
+}
+
+.widget {
+  background: peachpuff;
+  color: darkviolet;
+  padding: 3px;
+}
+
+.widget-calculator {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  max-width: 250px;
+  .calc-row {
+    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    padding: 6px;
+    button {
+      cursor: pointer;
+      display: inline-block;
+      font-size: 1.5em;
+      height: 40px;
+      margin: 4px;
+      text-align: center;
+      width: 40px;
+    }
+    input {
+      font-size: 1.5em;
+      margin: 8px auto 0;
+      text-align: right;
+      width: 90%;
+    }
+    .redButton {
+      background-color: #F01A33;
+    }
+    .greenButton {
+      background-color: #1AF021;
+    }
+    .blueButton {
+      background-color: #5EA4F2;
+    }
+    .yellowButton {
+      background-color: #F2E15E;
+    }
+    .purpleButton {
+      background-color: #F25EB9;
+    }
+    .greyButton {
+      background-color: #ADADAD;
+    }
+    .darkButton {
+      background-color: #696969;
+    }
+  }
+}
+
+.widget-weather {
+  height: 220px;
+  width: 500px;
+  .widget-weather-header {
+    display: flex;
+    flex-direction: row;
+    margin: 5px 5px 10px;
+    h3 {
+      font-weight: bold;
+      padding: 5px;
+      text-align: center;
+    }
+    input {
+      width: 20%;
+    }
+  }
+  .widget-weather-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .five-day-forecast-box {
+      text-align: center;
+      width: 19%;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.widget-clock {
+  height: 200px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  
+  .clock {
+    position: relative;
+    width: 200px;
+    height: 200px;
+  }
+  
+  .needle {
+    background-color: var(--primary-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 35px;
+    width: 3px;
+    transform-origin: bottom center;
+    transition: all 0.5s ease-in;
+  }
+  
+  .needle.hour {
+    transform: translate(-50%, -100%) rotate(0deg);
+    background-color: firebrick;
+  }
+  
+  .needle.minute {
+    transform: translate(-50%, -100%) rotate(0deg);
+    height: 55px;
+    background-color: forestgreen;
+  }
+  
+  .needle.second {
+    transform: translate(-50%, -100%) rotate(0deg);
+    height: 60px;
+    background-color: dodgerblue;
+  }
+  
+  .center-point {
+    background-color: #e74c3c;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+  }
+  
+  .center-point::after {
+    content: "";
+    background-color: var(--primary-color);
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+  }
+  
+  .time {
+    font-size: 60px;
+  }
+  
+  .date {
+    color: darkviolet;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+  
+  .date .circle {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 50%;
+    height: 18px;
+    width: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 18px;
+    transition: 0.5s ease-in;
+    font-size: 12px;
+  }
+}
+
+.widget-calendar {
+  height: 220px;
+  width: 600px;
+  .handle {
+    background-color: lightgreen;
+    height: 15px;
+    margin: 3px auto;
+    width: 98%;
+  }
+  .calendar-view, .menu-view {
+    display: flex;
+    flex-direction: row;
+    .date-box {
+      width: 25%;
+    }
+    .event-box {
+      width: 30%;
+    }
+    .date-box, .event-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 4px;
+      text-align: center;
+      h4 {
+        font-size: 1.3em;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      .date {
+        font-size: 7em;
+      }
+      .day {
+        text-transform: uppercase;
+      }
+      button {
+        margin: 0 auto;
+        width: 90%;
+      }
+    }
+    .calendar-box {
+      display: flex;
+      flex-direction: column;
+      width: 45%;
+      .cal-col {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        h4 {
+          border-bottom: black 2px solid;
+          display: inline-block;
+          font-weight: bold;
+          padding: 8px 0;
+          text-align: center;
+          width: 20%;
+        }
+        .cal-date {
+          border-right: black 1px solid;
+          display: inline-block;
+          padding: 4px 0;
+          text-align: center;
+          width: 20%;
+          &:first-child {
+            border-left: black 1px solid;
+          }
+          .current {
+            background-color: blue;
+            border-radius: 25px;
+            color: white;
+            padding: 4px 2px 2px;
+          }
+        }
+        &:last-child {
+          border-bottom: black 1px solid;
+        }
+      }
+      .cal-col-header {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        margin: 4px auto;
+      }
+      .date-btn {
+        display: inline-block;
+        text-align: center;
+        width: 20%;
+        button {
+          height: 21px;
+          width: 100%;
+        }
+        .active {
+          background-color: crimson;
+          color: white;
+        }
+      }
+    }
+    .menu-nav {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      width: 25%;
+      button {
+        margin: 4px;
+        width: 80%;
+      }
+      .active {
+        background-color: blue;
+        color: white;
+      }
+    }
+    .event-form {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      width: 30%;
+      input, textarea, button {
+        margin: 5px auto;
+        width: 90%;
+      }
+    }
+  }
+  
+}
+
+.widget-note {
+  height: 250px;
+  padding: 5px;
+  width: 250px;
+  .handle {
+    height: 10px;
+    margin: 0 auto 5px;
+    width: 100%;
+  }
+  textarea {
+    border: none;
+    font-size: 1.2em;
+    height: 200px;
+    resize: none;
+    width: 100%;
+    &:focus {
+      border: none;
+      outline: none;
+    }
+  }
+}
+
+.note-yellow {
+  background-color: yellow;
+  .handle {
+    background-color: gold;
+  }
+  textarea {
+    background-color: yellow;
+  }
+}
+
+.note-green {
+  background-color: lightgreen;
+  .handle {
+    background-color: green;
+  }
+  textarea {
+    background-color: lightgreen;
+  }
+}
+
+.note-purple {
+  background-color: plum;
+  .handle {
+    background-color: purple;
+  }
+  textarea {
+    background-color: plum;
+  }
+}
+
+.note-red {
+  background-color: palevioletred;
+  .handle {
+    background-color: red;
+  }
+  textarea {
+    background-color: palevioletred;
+  }
+}
+
+.note-gray {
+  background-color: lightgray;
+  .handle {
+    background-color: gray;
+  }
+  textarea {
+    background-color: lightgray;
+  }
+}
+
+.note-blue {
+  background-color: lightblue;
+  .handle {
+    background-color: blue;
+  }
+  textarea {
+    background-color: lightblue;
+  }
+}

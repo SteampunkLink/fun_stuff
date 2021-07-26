@@ -3,7 +3,7 @@ import Project from "./Project";
 import projectData from "../projectData";
 
 const Projects = () => {
-  const [projects, setProjects] = useState(projectData);
+  const [projects] = useState(projectData);
   return (
     <div className="container">
       <header>

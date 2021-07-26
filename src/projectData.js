@@ -45,6 +45,17 @@ const projectData = [
   },
   {
     id: 5,
+    title: "Junk Drawer",
+    imageSrc: "https://picsum.photos/seed/junk/300/200",
+    imageAlt: "random",
+    description:
+      "This is a simple app meant to replicate some of the functions of Mac OS's X now defunct dashbaord.",
+    link: "/demo/junkdrawer",
+    moreInfo:
+      "Had to replace my Macbook Air recently and discovered that Apple killed the dashboard. I was very sad about this. I loved having a little place to store things I use a lot like the weather widget, calculator, and the unit converter. And how useful were those sticky notes? I loved having a dedicated place to store them and jot down little notes to myself whever I needed to. Sure they're still on the desktop, but those get covered with windows and stuff. It's just not the same. I wanted to recreate some of the functionality of those widgets with this app. I may try turning this into a desktop app or something someday.",
+  },
+  {
+    id: 6,
     title: "Test 4",
     imageSrc: "https://picsum.photos/seed/zack/300/200",
     imageAlt: "random",

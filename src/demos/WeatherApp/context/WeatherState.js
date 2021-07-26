@@ -42,7 +42,6 @@ const WeatherState = (props) => {
         humidity: res.data.main.humidity,
         wind: res.data.wind.speed,
       };
-      console.log(res.data);
       setCoordinates(res.data.coord.lon, res.data.coord.lat);
       dispatch({ type: WEATHER_CC_SUCCESS, payload: ccDataFormatted });
     } catch (error) {
@@ -52,13 +51,13 @@ const WeatherState = (props) => {
   };
 
   // load three day forecast
-  const loadThreeDayForecast = async (zip) => {
+  const loadThreeDayForecast = async (zip, days) => {
     dispatch({ type: WEATHER_3D_LOAD });
     try {
       const endpoint = `https://api.openweathermap.org/data/2.5/forecast/daily?zip=${zip}&units=imperial&appid=${apiKey}`;
       const res = await axios.get(endpoint);
       let tdDataFormatted = [];
-      for (let x = 0; x < 3; x++) {
+      for (let x = 0; x < days; x++) {
         const newData = {
           date: res.data.list[x].dt,
           hi: res.data.list[x].temp.max,
