@@ -6,12 +6,13 @@
   .junk-header {
     background: darkslategray;
     color: white;
+    height: 8%;
     text-align: center;
   }
   .junk-main {
     display: flex;
     flex-direction: row;
-    height: 100%;
+    height: 92%;
   }
 }
 
@@ -37,6 +38,7 @@
 .widget {
   background: peachpuff;
   color: darkviolet;
+  padding: 3px;
 }
 
 .widget-calculator {
@@ -90,18 +92,19 @@
 }
 
 .widget-weather {
-  height: 200px;
+  height: 220px;
   width: 500px;
   .widget-weather-header {
     display: flex;
     flex-direction: row;
+    margin: 5px 5px 10px;
     h3 {
       font-weight: bold;
       padding: 5px;
       text-align: center;
     }
     input {
-      width: 30%;
+      width: 20%;
     }
   }
   .widget-weather-main {
@@ -119,8 +122,8 @@
 }
 
 .widget-clock {
-  height: 250px;
-  width: 250px;
+  height: 200px;
+  width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -137,7 +140,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    height: 45px;
+    height: 35px;
     width: 3px;
     transform-origin: bottom center;
     transition: all 0.5s ease-in;
@@ -150,13 +153,13 @@
   
   .needle.minute {
     transform: translate(-50%, -100%) rotate(0deg);
-    height: 85px;
+    height: 55px;
     background-color: forestgreen;
   }
   
   .needle.second {
     transform: translate(-50%, -100%) rotate(0deg);
-    height: 85px;
+    height: 60px;
     background-color: dodgerblue;
   }
   
@@ -189,7 +192,7 @@
   
   .date {
     color: darkviolet;
-    font-size: 14px;
+    font-size: 12px;
     letter-spacing: 0.3px;
     text-transform: uppercase;
   }
@@ -206,5 +209,211 @@
     line-height: 18px;
     transition: 0.5s ease-in;
     font-size: 12px;
+  }
+}
+
+.widget-calendar {
+  height: 220px;
+  width: 600px;
+  .handle {
+    background-color: lightgreen;
+    height: 15px;
+    margin: 3px auto;
+    width: 98%;
+  }
+  .calendar-view, .menu-view {
+    display: flex;
+    flex-direction: row;
+    .date-box {
+      width: 25%;
+    }
+    .event-box {
+      width: 30%;
+    }
+    .date-box, .event-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 4px;
+      text-align: center;
+      h4 {
+        font-size: 1.3em;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      .date {
+        font-size: 7em;
+      }
+      .day {
+        text-transform: uppercase;
+      }
+      button {
+        margin: 0 auto;
+        width: 90%;
+      }
+    }
+    .calendar-box {
+      display: flex;
+      flex-direction: column;
+      width: 45%;
+      .cal-col {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        h4 {
+          border-bottom: black 2px solid;
+          display: inline-block;
+          font-weight: bold;
+          padding: 8px 0;
+          text-align: center;
+          width: 20%;
+        }
+        .cal-date {
+          border-right: black 1px solid;
+          display: inline-block;
+          padding: 4px 0;
+          text-align: center;
+          width: 20%;
+          &:first-child {
+            border-left: black 1px solid;
+          }
+          .current {
+            background-color: blue;
+            border-radius: 25px;
+            color: white;
+            padding: 4px 2px 2px;
+          }
+        }
+        &:last-child {
+          border-bottom: black 1px solid;
+        }
+      }
+      .cal-col-header {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        margin: 4px auto;
+      }
+      .date-btn {
+        display: inline-block;
+        text-align: center;
+        width: 20%;
+        button {
+          height: 21px;
+          width: 100%;
+        }
+        .active {
+          background-color: crimson;
+          color: white;
+        }
+      }
+    }
+    .menu-nav {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      width: 25%;
+      button {
+        margin: 4px;
+        width: 80%;
+      }
+      .active {
+        background-color: blue;
+        color: white;
+      }
+    }
+    .event-form {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      width: 30%;
+      input, textarea, button {
+        margin: 5px auto;
+        width: 90%;
+      }
+    }
+  }
+  
+}
+
+.widget-note {
+  height: 250px;
+  padding: 5px;
+  width: 250px;
+  .handle {
+    height: 10px;
+    margin: 0 auto 5px;
+    width: 100%;
+  }
+  textarea {
+    border: none;
+    font-size: 1.2em;
+    height: 200px;
+    resize: none;
+    width: 100%;
+    &:focus {
+      border: none;
+      outline: none;
+    }
+  }
+}
+
+.note-yellow {
+  background-color: yellow;
+  .handle {
+    background-color: gold;
+  }
+  textarea {
+    background-color: yellow;
+  }
+}
+
+.note-green {
+  background-color: lightgreen;
+  .handle {
+    background-color: green;
+  }
+  textarea {
+    background-color: lightgreen;
+  }
+}
+
+.note-purple {
+  background-color: plum;
+  .handle {
+    background-color: purple;
+  }
+  textarea {
+    background-color: plum;
+  }
+}
+
+.note-red {
+  background-color: palevioletred;
+  .handle {
+    background-color: red;
+  }
+  textarea {
+    background-color: palevioletred;
+  }
+}
+
+.note-gray {
+  background-color: lightgray;
+  .handle {
+    background-color: gray;
+  }
+  textarea {
+    background-color: lightgray;
+  }
+}
+
+.note-blue {
+  background-color: lightblue;
+  .handle {
+    background-color: blue;
+  }
+  textarea {
+    background-color: lightblue;
   }
 }

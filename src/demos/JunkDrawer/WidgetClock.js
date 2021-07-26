@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Draggable from 'react-draggable'
 
+import {months, days} from "./dateVars"
+
 const WidgetClock = () => {
+  const nodeRef = useRef(null)
+
   const [ currentTime, setCurrentTime ] = useState({
     month: null,
     day: null,
@@ -14,29 +18,6 @@ const WidgetClock = () => {
   })
 
   const setTime = () => {
-    const days = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];
-    const months = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
     const time = new Date()
     const timeHours = time.getHours()
     const day = time.getDay()
@@ -64,8 +45,8 @@ const WidgetClock = () => {
   };
 
   return (
-    <Draggable>
-      <div className="widget widget-clock">
+    <Draggable defaultPosition={{ x: 265, y: -505 }} nodeRef={nodeRef}>
+      <div ref={nodeRef} className="widget widget-clock">
         <div className="clock">
           <div className="needle hour" style={{ 
             transform: `translate(-50%, -100%) 

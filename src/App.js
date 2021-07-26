@@ -16,6 +16,7 @@ import TodoState from "./demos/TodoApp/context/TodoState";
 import PogApp from "./demos/PogApp/PogApp";
 
 import JunkDrawerApp from "./demos/JunkDrawer/JunkDrawerApp";
+import JunkState from "./demos/JunkDrawer/context/JunkState";
 
 function App() {
   return (
@@ -35,7 +36,7 @@ function App() {
           />
           <Demo component={TodoApp} context={TodoState} path="/demo/todo" />
           <Demo component={PogApp} context={Fragment} path="/demo/caps" />
-          <Demo component={JunkDrawerApp} context={WeatherState} path="/demo/junkdrawer" />
+          <Demo component={JunkDrawerApp} context={JunkState} path="/demo/junkdrawer" />
         </Switch>
       </Router>
     </div>
