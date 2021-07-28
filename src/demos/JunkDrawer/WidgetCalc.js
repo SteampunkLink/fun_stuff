@@ -1,8 +1,11 @@
 import React, { useState, useRef } from 'react'
 import Draggable from 'react-draggable'
 
-const WidgetCalc = () => {
+const WidgetCalc = ({ position, handleWidgetPosition, z }) => {
   const nodeRef = useRef(null)
+  const handleDrag = (e, ui) => {
+    handleWidgetPosition("calculator", ui)
+  }
   const [ calcData, setCalcData ] = useState({
     display: '0',
     previous: null,
@@ -114,8 +117,8 @@ const WidgetCalc = () => {
     })
   }
   return (
-    <Draggable defaultPosition={{ x: 5, y: -205 }} nodeRef={nodeRef}>
-      <div ref={nodeRef} className="widget widget-calculator">
+    <Draggable defaultPosition={{ x: position.x, y: position.y }} nodeRef={nodeRef} onDrag={handleDrag} bounds="parent">
+      <div style={{ zIndex: z }}ref={nodeRef} className="widget widget-calculator">
         <div className="calc-row">
           <input type="text" className="form-control display center-block text-right" readOnly value={calcData.display} />
         </div>

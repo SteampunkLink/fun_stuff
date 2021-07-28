@@ -17,13 +17,13 @@ const defaultNote = [{
   id: 1,
   color: "yellow",
   text: "Testing",
-  position: { x: 475, y: -705 }
+  position: { x: 475, y: 235 }
 }, 
 {
   id: 2,
   color: "blue",
   text: "",
-  position: { x: 735, y: -955 }
+  position: { x: 735, y: -15 }
 }]
 
 const JunkState = (props) => {

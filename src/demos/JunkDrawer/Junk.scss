@@ -25,13 +25,22 @@
   .menu-item {
     background-color: chocolate;
     color: black;
+    display: flex;
+    justify-content: space-between;
     margin: 15px 0; 
     padding: 10px;
+    .toggle-btn {
+      cursor: pointer;
+      &:hover {
+        color: white;
+      }
+    }
   }
 }
 
 .junk-drawer {
   background: rgba(0,0,0,0.3);
+  position: relative;
   width: 85%;
 }
 
@@ -39,6 +48,7 @@
   background: peachpuff;
   color: darkviolet;
   padding: 3px;
+  position: absolute;
 }
 
 .widget-calculator {
