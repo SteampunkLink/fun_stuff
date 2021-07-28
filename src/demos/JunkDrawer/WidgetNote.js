@@ -39,7 +39,6 @@ const WidgetNote = ({ note, defaultPos }) => {
              <option value="gray">Gray</option>
              <option value="blue">Blue</option>
            </select>
-           <button>New</button>
            <button>Delete</button>
          </div>
       </div>

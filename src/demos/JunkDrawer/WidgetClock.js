@@ -3,9 +3,11 @@ import Draggable from 'react-draggable'
 
 import {months, days} from "./dateVars"
 
-const WidgetClock = () => {
+const WidgetClock = ({ position, handleWidgetPosition, z }) => {
   const nodeRef = useRef(null)
-
+  const handleDrag = (e, ui) => {
+    handleWidgetPosition("clock", ui)
+  }
   const [ currentTime, setCurrentTime ] = useState({
     month: null,
     day: null,
@@ -37,7 +39,10 @@ const WidgetClock = () => {
   }
 
   useEffect(() => {
-    setInterval(setTime, 1000)
+    let tick = setInterval(setTime, 1000)
+    return function cleanup() {
+      clearInterval(tick)
+    }
   }, [])
 
   const scale = (num, in_min, in_max, out_min, out_max) => {
@@ -45,8 +50,8 @@ const WidgetClock = () => {
   };
 
   return (
-    <Draggable defaultPosition={{ x: 265, y: -505 }} nodeRef={nodeRef}>
-      <div ref={nodeRef} className="widget widget-clock">
+    <Draggable defaultPosition={{ x: position.x, y: position.y }} nodeRef={nodeRef} onDrag={handleDrag} bounds="parent">
+      <div style={{ zIndex: z }} ref={nodeRef} className="widget widget-clock">
         <div className="clock">
           <div className="needle hour" style={{ 
             transform: `translate(-50%, -100%) 

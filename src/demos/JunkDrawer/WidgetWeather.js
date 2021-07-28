@@ -4,8 +4,11 @@ import JunkContext from "./context/junkContext"
 
 import Draggable from 'react-draggable'
 
-const WidgetWeather = () => {
+const WidgetWeather = ({ position, handleWidgetPosition, z }) => {
   const nodeRef = useRef(null)
+  const handleDrag = (e, ui) => {
+    handleWidgetPosition("weather", ui)
+  }
   const [zipCode, setZipCode] = useState("98032");
   const [zipInput, updateZipInput] = useState("98032");
   const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
@@ -31,8 +34,8 @@ const WidgetWeather = () => {
   }, [zipCode]);
 
   return (
-    <Draggable defaultPosition={{ x: 5, y: 5 }} nodeRef={nodeRef}>
-      <div ref={nodeRef} className="widget widget-weather">
+    <Draggable defaultPosition={{ x: position.x, y: position.y }} bounds="parent" nodeRef={nodeRef} onDrag={handleDrag}>
+      <div style={{ zIndex: z }} ref={nodeRef} className="widget widget-weather">
         <div className="widget-weather-header">
           <h3>5-Day Forecast for {zipCode}</h3>
           <input

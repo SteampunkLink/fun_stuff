@@ -6,8 +6,11 @@ import Draggable from 'react-draggable'
 import CalendarBox from './CalendarBox';
 import CalendarDate from './CalendarDate';
 
-const WidgetCalendar = () => {
+const WidgetCalendar = ({ position, handleWidgetPosition, z }) => {
   const nodeRef = useRef(null)
+  const handleDrag = (e, ui) => {
+    handleWidgetPosition("calendar", ui)
+  }
   const [activeView, setActiveView] = useState("calendar")
   const [newEvent, updateNewEvent] = useState({
     date: 0,
@@ -67,8 +70,14 @@ const WidgetCalendar = () => {
   }, [allEvents, activeView])
 
   return (
-    <Draggable defaultPosition={{ x: 515, y: -215 }} nodeRef={nodeRef} handle=".handle">
-      <div ref={nodeRef} className="widget widget-calendar">
+    <Draggable 
+      defaultPosition={{ x: position.x, y: position.y }} 
+      nodeRef={nodeRef} 
+      bounds="parent" 
+      handle=".handle" 
+      onDrag={handleDrag}
+    >
+      <div style={{ zIndex: z }} ref={nodeRef} className="widget widget-calendar">
         <div className="handle"></div>
         {activeView === "calendar" ? (<div className="calendar-view">
           <CalendarDate />
