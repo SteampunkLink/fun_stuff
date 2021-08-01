@@ -58,9 +58,14 @@ const weatherReducer = (state, action) => {
       return {
         ...state,
         notes: state.notes.map((note) => {
-          if (note.id === action.payload.id) { return action.payload }
+          if (note.id === action.payload.id) { return { ...note, ...action.payload} }
           else { return note }
         })
+      }
+    case DELETE_NOTE:
+      return {
+        ...state,
+        notes: state.notes.filter((note) => note.id !== action.payload)
       }
     default:
       return { ...state };

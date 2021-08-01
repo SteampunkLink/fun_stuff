@@ -102,7 +102,7 @@ const WidgetCalendar = ({ position, handleWidgetPosition, z }) => {
                 <input type="text" name="title" value={newEvent.title} onChange={updateEventParams} placeholder="Title" />
                 <textarea name="text" rows="7" onChange={updateEventParams} placeholder="Event Description" value={newEvent.text}>
                 </textarea>
-                <button onClick={handleAddEvent}>Add Event</button>
+                <button className="event-edit-btn" onClick={handleAddEvent}>Add Event</button>
               </Fragment>) }
               { activeView === "edit" && (<Fragment>
                 { selectedEvents.length 
@@ -110,7 +110,7 @@ const WidgetCalendar = ({ position, handleWidgetPosition, z }) => {
                   {`${evnt.title} `}<button onClick={() => handleDeleteEvent(evnt)}>x</button>
                 </span>) 
                 : (<p>No Events to Display</p>)}
-                <button onClick={() => handleCalendarView("new") }>Manage Events</button>
+                <button className="event-edit-btn" onClick={() => handleCalendarView("new") }>Manage Events</button>
               </Fragment>) }
             </div>
           )}

@@ -83,9 +83,9 @@ const CalendarBox = ({ dateClass, handleSetEventDate }) => {
   return (
     <div className="calendar-box">
       { dateClass === "date-btn" && (<div className="cal-col-header">
-        <button onClick={() => handleChangeMonth("prev")}>PREV</button>
+        <button onClick={() => handleChangeMonth("prev")}>&#8810;PREV</button>
         <div>{months[selectedMonthYear.month]} {selectedMonthYear.year}</div>
-        <button onClick={() => handleChangeMonth("next")}>NEXT</button>
+        <button onClick={() => handleChangeMonth("next")}>NEXT&#8811;</button>
       </div>) }
       <div className="cal-col">
         <h4 className="calendar-heading">Sun</h4>
@@ -101,7 +101,7 @@ const CalendarBox = ({ dateClass, handleSetEventDate }) => {
           <div className="cal-col" key={`week-${idx}`}>
             { week.map((date, idx2) => <span className={dateClass} key={`date-${idx}-${idx2}`}>
               { dateClass === "cal-date" ? (<p className={new Date().getDate() === date ? "current" : ""}>{date}</p>)
-              : (<button className={selectedMonthYear.day === date ? "active" : ""} onClick={() => setEventDate(date)}>{date}</button>)}
+              : (<button className={selectedMonthYear.day === date ? "active" : date === "" ? "empty" : ""} onClick={() => setEventDate(date)}>{date}</button>)}
             </span>) }
           </div>
         )

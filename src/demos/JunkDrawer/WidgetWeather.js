@@ -51,9 +51,9 @@ const WidgetWeather = ({ position, handleWidgetPosition, z }) => {
             forecast.map((dataset, idx) => (
             <div key={`5df-${idx}`} className="five-day-forecast-box">
               <h3>{days[new Date(dataset.date * 1000).getDay()]}</h3>
-              <div>{dataset.desc}</div>
-              <div>H: {Math.round(dataset.hi)}&#8457;</div>
-              <div>L: {Math.round(dataset.lo)}&#8457;</div>
+              <div className="weather-desc">{dataset.desc}</div>
+              <div className="f5-h">H: {Math.round(dataset.hi)}&#8457;</div>
+              <div className="f5-l">L: {Math.round(dataset.lo)}&#8457;</div>
               <img
                 id="tdf1-img"
                 src={`http://openweathermap.org/img/wn/${dataset.icon}@4x.png`}

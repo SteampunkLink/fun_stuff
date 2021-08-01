@@ -38,7 +38,7 @@ const Demo = ({ component: Component, context: Context }) => {
           </Context>
         </div>
       </div>
-      <nav className="demo-menu">
+      <nav className={isMenuOpen ? "demo-menu" : "demo-menu demo-menu-disable"}>
         <ul>
           <li>
             <Link to="/">

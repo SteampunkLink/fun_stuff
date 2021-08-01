@@ -10,20 +10,15 @@ import junkReducer, {
   DELETE_EVENT,
   CREATE_NOTE,
   UPDATE_NOTE,
+  DELETE_NOTE,
 } from "./junkReducer";
 const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
 
 const defaultNote = [{
-  id: 1,
-  color: "yellow",
-  text: "Testing",
-  position: { x: 475, y: 235 }
-}, 
-{
-  id: 2,
+  id: "note",
   color: "blue",
-  text: "",
-  position: { x: 735, y: -15 }
+  text: "Testing",
+  position: { x: 475, y: 235, z: 1 }
 }]
 
 const JunkState = (props) => {
@@ -80,7 +75,7 @@ const JunkState = (props) => {
   }
 
   // create note
-  const createNote = (position) => {
+  const createNote = () => {
     const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
     let newId = ""
     for (let i = 0; i < 4; i++) {
@@ -89,14 +84,18 @@ const JunkState = (props) => {
     const newNote = {
       id: newId,
       color: "yellow",
-      text: "Testing",
-      position
+      text: "",
+      position: { x: 5, y: 5, z: 7 }
     }
     dispatch({ type: CREATE_NOTE, payload: newNote })
   }
 
   const updateNote = (noteToUpdate) => {
     dispatch({ type: UPDATE_NOTE, payload: noteToUpdate })
+  }
+
+  const deleteNote = (idToDelete) => {
+    dispatch({ type: DELETE_NOTE, payload: idToDelete })
   }
 
   return (
@@ -113,6 +112,7 @@ const JunkState = (props) => {
         deleteEvent,
         createNote,
         updateNote,
+        deleteNote,
       }}
     >
       {props.children}
