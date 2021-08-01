@@ -127,31 +127,31 @@ const WidgetCalc = ({ position, handleWidgetPosition, z }) => {
           <button className='greyButton' onClick={ () => { pushButton('7') } }>7</button>
           <button className='greyButton' onClick={ () => { pushButton('8') } }>8</button>
           <button className='greyButton' onClick={ () => { pushButton('9') } }>9</button>
-          <button className='blueButton' onClick={ () => { pushOpper('plus') } }>+</button>
-          <button className='blueButton' onClick={ () => { pushOpper('times') } }>x</button>
+          <button className='yellowButton' onClick={ () => { pushOpper('plus') } }>+</button>
+          <button className='yellowButton' onClick={ () => { pushOpper('times') } }>x</button>
         </div>
 
         <div className="calc-row">
           <button className='greyButton' onClick={ () => { pushButton('4') } }>4</button>
           <button className='greyButton' onClick={ () => { pushButton('5') } }>5</button>
           <button className='greyButton' onClick={ () => { pushButton('6') } }>6</button>
-          <button className='blueButton' onClick={ () => { pushOpper('minus') } }>-</button>
-          <button className='blueButton' onClick={ () => { pushOpper('divide') } }>&divide;</button>
+          <button className='yellowButton' onClick={ () => { pushOpper('minus') } }>-</button>
+          <button className='yellowButton' onClick={ () => { pushOpper('divide') } }>&divide;</button>
         </div>
 
         <div className="calc-row">
           <button className='greyButton' onClick={ () => { pushButton('3') } }>3</button>
           <button className='greyButton' onClick={ () => { pushButton('2') } }>2</button>
           <button className='greyButton' onClick={ () => { pushButton('1') } }>1</button>
-          <button className='yellowButton' onClick={ () => { pushEquals() } }>=</button>
-          <button className='purpleButton' onClick={ () => { pushClear() } }>c</button>
+          <button className='redButton' onClick={ () => { pushEquals() } }>=</button>
+          <button className='redButton' onClick={ () => { pushClear() } }>c</button>
         </div>
 
         <div className="calc-row">
           <button className='darkButton' onClick={ () => { pushDot() } }>.</button>
           <button className='greyButton' onClick={ () => { pushZero() } }>0</button>
           <button className='darkButton' onClick={ () => { pushNeg() } }>+-</button>
-          <button className='greenButton' onClick={ () => { pushMem() } }>M</button>
+          <button className='redButton' onClick={ () => { pushMem() } }>M</button>
           <button className='redButton' onClick={ () => { pushRec() } }>R</button>
         </div>
       </div>

@@ -3,13 +3,15 @@ import React, { useContext, useEffect, useState, useRef } from 'react'
 import JunkContext from "./context/junkContext"
 import Draggable from 'react-draggable'
 
-const WidgetNote = ({ note, defaultPos }) => {
+const WidgetNote = ({ note, position, handleWidgetPosition, z }) => {
   const nodeRef = useRef(null)
-
+  const handleDrag = (e, ui) => {
+    handleWidgetPosition(note.id, ui)
+  }
   const [noteState, updateNoteState] = useState({})
 
   const junkContext = useContext(JunkContext)
-  const { updateNote } = junkContext
+  const { updateNote, deleteNote } = junkContext
 
   const handleUpdateField = (e) => {
     const newNoteFields = {
@@ -26,8 +28,8 @@ const WidgetNote = ({ note, defaultPos }) => {
   }, [])
 
   return (
-    <Draggable defaultPosition={{ x: defaultPos.x, y: defaultPos.y }} nodeRef={nodeRef} handle=".handle">
-      <div ref={nodeRef} className={`widget-note note-${noteState.color}`}>
+    <Draggable defaultPosition={{ x: position.x, y: position.y }} nodeRef={nodeRef} handle=".handle" onDrag={handleDrag}>
+      <div style={{ zIndex: z }} ref={nodeRef} className={`widget-note note-${noteState.color}`}>
         <div className="handle"></div>
         <textarea value={noteState.text} name="text" onChange={handleUpdateField} placeholder="Enter Text Here"></textarea>
         <div className="note-controls">
@@ -39,7 +41,7 @@ const WidgetNote = ({ note, defaultPos }) => {
              <option value="gray">Gray</option>
              <option value="blue">Blue</option>
            </select>
-           <button>Delete</button>
+           <button onClick={() => deleteNote(note.id)}>x</button>
          </div>
       </div>
     </Draggable>

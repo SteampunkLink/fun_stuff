@@ -80,6 +80,10 @@ nav {
   z-index: 100;
 }
 
+.demo-menu-disable {
+  pointer-events: none;
+}
+
 nav ul {
   list-style-type: none;
   padding-left: 30px;
