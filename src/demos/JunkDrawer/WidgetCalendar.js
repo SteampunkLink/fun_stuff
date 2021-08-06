@@ -21,7 +21,7 @@ const WidgetCalendar = ({ position, handleWidgetPosition, z }) => {
   })
 
   const junkContext = useContext(JunkContext)
-  const { allEvents, selectedEvents, createEvent, getDaysEvents, deleteEvent } = junkContext
+  const { allEvents, selectedEvents, loadEvents, createEvent, getDaysEvents, deleteEvent } = junkContext
 
   const handleCalendarView = (view) => {
     updateNewEvent({
@@ -57,9 +57,14 @@ const WidgetCalendar = ({ position, handleWidgetPosition, z }) => {
     }
   }
 
-  const handleDeleteEvent = (oldEvent) => {
-    deleteEvent(oldEvent)
+  const handleDeleteEvent = (eventId) => {
+    deleteEvent(eventId)
   }
+
+  useEffect(() => {
+    loadEvents()
+    // eslint-disable-next-line
+  }, [])
 
   useEffect(() => {
     if (activeView === "calendar") {
@@ -107,7 +112,7 @@ const WidgetCalendar = ({ position, handleWidgetPosition, z }) => {
               { activeView === "edit" && (<Fragment>
                 { selectedEvents.length 
                 ? selectedEvents.map((evnt) => <span key={`evkey-${evnt.date}-${evnt.month}-${evnt.year}`}>
-                  {`${evnt.title} `}<button onClick={() => handleDeleteEvent(evnt)}>x</button>
+                  {`${evnt.title} `}<button onClick={() => handleDeleteEvent(evnt.id)}>x</button>
                 </span>) 
                 : (<p>No Events to Display</p>)}
                 <button className="event-edit-btn" onClick={() => handleCalendarView("new") }>Manage Events</button>
