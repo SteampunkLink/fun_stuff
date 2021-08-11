@@ -1,43 +1,55 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react"
 
-import ScratchContext from "./context/scratchContext";
+import ScratchContext from "./context/scratchContext"
 
-import ScratchCard from "./ScratchCard";
+import ScratchCard from "./ScratchCard"
+import FlipCard from "./FlipCard"
 
-import "./Scratch.scss";
+import "./Scratch.scss"
 
 const ScratchCardApp = () => {
-  const [selectedCardId, setSelectedCard] = useState(null);
-  const scratchContext = useContext(ScratchContext);
+  const [selectedCardId, setSelectedCard] = useState(null)
+  const [oldCard, setOldCard] = useState(null)
+  const [flipCard, setFlipCard] = useState(false)
 
-  const { cardList, selectedCard, createCardList, selectCard } = scratchContext;
-
-  useEffect(() => {
-    createCardList();
-    // eslint-disable-next-line
-  }, []);
+  const scratchContext = useContext(ScratchContext)
+  const { cardList, selectedCard, selectCard } = scratchContext
 
   useEffect(() => {
-    selectCard(selectedCardId);
+    selectCard(selectedCardId)
     // eslint-disable-next-line
-  }, [selectedCardId]);
+  }, [selectedCardId])
+
+  const handleSelectedCard = (id) => {
+    setOldCard(selectedCard)
+    setSelectedCard(id)
+    setFlipCard(true)
+    setTimeout(() => {setFlipCard(false)}, 600)
+  }
 
   return (
     <div id="scratch-app">
       <div className="scratch-container">
+
         <div className="scratch-nav">
           <ul>
             {cardList.map((card) => (
-              <button key={card.id} onClick={() => setSelectedCard(card.id)}>
+              <button key={card.id} onClick={() => handleSelectedCard(card.id)}>
                 {card.title}
               </button>
             ))}
           </ul>
         </div>
-        {selectedCard && <ScratchCard card={selectedCard} />}
+        <div className="scratch-card">
+        { flipCard ? 
+          (<FlipCard card1={oldCard} card2={selectedCard} />) : 
+          (<ScratchCard card={selectedCard} /> )
+        }
+        </div>
+        
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ScratchCardApp;
+export default ScratchCardApp
