@@ -2,7 +2,6 @@ import React, { Fragment, useState, useEffect } from "react";
 import ScratchArea from "./ScratchArea";
 
 const ScratchCard = ({ card }) => {
-  const [isFlipped, toggleFlip] = useState(false);
   const [tokenArr, createTokenArr] = useState([]);
 
   const shuffleArray = (array) => {
@@ -15,49 +14,54 @@ const ScratchCard = ({ card }) => {
     return array;
   };
 
-  const handleFlip = () => {
-    toggleFlip(!isFlipped);
-  };
-
   useEffect(() => {
-    const arr1 = shuffleArray(card.groups[0]);
-    const arr2 = shuffleArray(card.groups[1]);
-    createTokenArr(arr1.concat(arr2));
-  }, []);
+    let newTokenArr = []
+    card.groups.forEach((group) => {
+      const shuffledArr = shuffleArray(group)
+      newTokenArr = newTokenArr.concat(shuffledArr)
+    })
+    createTokenArr(newTokenArr);
+    // eslint-disable-next-line
+  }, [card]);
 
   return (
     <Fragment>
-      <button onClick={handleFlip}>Flip!</button>
-      <div
-        className={`flip-container${isFlipped ? " hover" : ""}${
-          card.type === "long" ? " long" : ""
-        }`}
-      >
-        <div className="flipper">
-          <div
-            className="front"
-            style={{ backgroundImage: `url(/nesCards/${card.background})` }}
-          >
-            {tokenArr.map((token, idx) => (
-              <ScratchArea
-                key={idx}
-                token={token}
-                xAxis={card.locations[0][idx]}
-                yAxis={card.locations[1][idx]}
-              />
-            ))}
-          </div>
-          <div
-            className="back"
-            style={{
-              backgroundImage: `url(/nesCards/${card.instructions})`,
-              backgroundSize: "cover",
-              width: "375px",
-              height: "525px",
-            }}
-          ></div>
+      <div className="flip-container">
+        <div
+          className={`front ${card.type}`}
+          style={{ backgroundImage: `url(/nesCards/${card.directory}/screen${card.screen}.jpg)` }}
+        >
+          {tokenArr.map((token, idx) => (
+            <ScratchArea
+              key={idx}
+              token={token}
+              xAxis={card.locations[0][idx]}
+              yAxis={card.locations[1][idx]}
+            />
+          ))}
         </div>
       </div>
+      { card.directions && (
+        <div className="instruction-container">
+          <h3>{card.game} - Screen {card.screen}</h3>
+          <h4>{card.title}</h4>
+          <div className="token-description">
+            {card.pictures && card.pictures.map((pic) => (
+              <div>
+                <div 
+                  className="example-token" 
+                  style={{ backgroundImage: `url(/nesCards/tokens/token-${Object.keys(pic)[0]}.png)` }}>  
+                </div>
+                <h5>{pic[Object.keys(pic)[0]]}</h5>
+              </div>
+            ))}
+          </div>
+          <h4>Directions:</h4>
+          <ul>
+            {card.directions.map((step, idx) => <li key={idx}>{step}</li>)}
+          </ul>
+        </div>
+      )}
     </Fragment>
   );
 };

@@ -19,6 +19,7 @@ const ScratchArea = ({ token, xAxis, yAxis }) => {
 
   useEffect(() => {
     setY(`${spritePlacement[Math.floor(Math.random() * 4)]}px`);
+    // eslint-disable-next-line
   }, []);
 
   return (
