@@ -46,7 +46,7 @@ const cardData = [
     directory: "mario",
     directions: ["Find 3 arrows to win.", "Uncover 3 Bloopers and you lose."],
     pictures: [
-      { bloober: "Find 3 and You Lose" },
+      { blooper: "Find 3 and You Lose" },
       { right: "Find 3 to Advance" },
     ],
     groups: [
@@ -54,8 +54,8 @@ const cardData = [
       ["right", "right", "blooper", "blooper", "blooper"],
     ],
     locations: [
-      ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x"],
-      ["y", "y", "y", "y", "y", "y", "y", "y", "y", "y"],
+      ["93", "137", "147", "142", "100", "304", "304", "304", "304", "304"],
+      ["47", "29", "32", "36", "20", "-170", "-167", "-164", "-161", "-158"],
     ]
   },
   {
@@ -75,8 +75,8 @@ const cardData = [
       ["right", "right", "paratroopa", "paratroopa"],
     ],
     locations: [
-      ["x", "x", "x", "x", "x", "x", "x", "x", "x"],
-      ["y", "y", "y", "y", "y", "y", "y", "y", "y"],
+      ["107", "156", "106", "155", "156", "405", "424", "388", "422"],
+      ["32", "-14", "5", "-56", "-53", "-168", "-166", "-163", "-160"],
     ]
   },
   {
@@ -96,8 +96,8 @@ const cardData = [
       ["right", "right", "right", "beetle", "beetle", "beetle", "beetle"],
     ],
     locations: [
-      ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x"],
-      ["y", "y", "y", "y", "y", "y", "y", "y", "y", "y", "y", "y"],
+      ["112", "139", "145", "165", "165", "309", "359", "409", "300", "413", "415", "416"],
+      ["30", "27", "30", "28", "31", "-194", "-240", "-280", "-232", "-234", "-231", "-228"],
     ]
   },
   {
@@ -118,8 +118,8 @@ const cardData = [
       ["right", "duck", "duck", "bullet", "bullet"],
     ],
     locations: [
-      ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x"],
-      ["y", "y", "y", "y", "y", "y", "y", "y", "y", "y", "y"],
+      ["54", "102", "21", "65", "113", "161", "335", "321", "370", "416", "313"],
+      ["99", "61", "48", "23", "-22", "-68", "-168", "-163", "-215", "-280", "-244"],
     ]
   },
   {
@@ -139,8 +139,8 @@ const cardData = [
       ["right", "right", "cheepcheep", "cheepcheep", "cheepcheep"],
     ],
     locations: [
-      ["x", "x", "x", "x", "x", "x", "x", "x", "x"],
-      ["y", "y", "y", "y", "y", "y", "y", "y", "y"],
+      ["112", "161", "118", "166", "324", "374", "423", "347", "398"],
+      ["84", "28", "46", "-13", "-91", "-134", "-178", "-176", "-220"],
     ]
   },
   {
@@ -162,8 +162,8 @@ const cardData = [
       ["up", "up", "troopa", "troopa", "shell"],
     ],
     locations: [
-      ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x"],
-      ["y", "y", "y", "y", "y", "y", "y", "y", "y", "y"],
+      ["50", "98", "140", "150", "145", "365", "322", "322", "324", "324"],
+      ["103", "62", "41", "44", "47", "-176", "-182", "-179", "-177", "-174"],
     ]
   },
   {
@@ -184,8 +184,8 @@ const cardData = [
       ["lever", "lever", "lever", "fireball", "fireball", "fireball", "fireball"],
     ],
     locations: [
-      ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x"],
-      ["y", "y", "y", "y", "y", "y", "y", "y", "y", "y", "y", "y"],
+      ["33", "80", "130", "142", "154", "314", "384", "348", "309", "364", "332", "395"],
+      ["87", "22", "-11", "-6", "-3", "-178", "-222", "-231", "-243", "-276", "-284", "-310"],
     ]
   },
   {
@@ -207,8 +207,8 @@ const cardData = [
       ["grab", "grab", "toss", "fall", "fall"],
     ],
     locations: [
-      ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x"],
-      ["y", "y", "y", "y", "y", "y", "y", "y", "y", "y"],
+      ["77", "126", "163", "164", "146", "333", "316", "304", "351", "399"],
+      ["90", "34", "24", "27", "27", "-203", "-201", "-199", "-229", "-272"],
     ]
   },
   {
@@ -230,8 +230,8 @@ const cardData = [
       ["toss", "toss", "toss", "toss", "cannonball", "cannonball", "cannonball"],
     ],
     locations: [
-      ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x"],
-      ["y", "y", "y", "y", "y", "y", "y", "y", "y", "y", "y", "y", "y"],
+      ["66", "114", "154", "150", "143", "141", "325", "321", "275", "309", "279", "327", "351"],
+      ["121", "86", "12", "28", "31", "33", "-197", "-190", "-221", "-231", "-238", "-273", "-276"],
     ]
   },
   {
@@ -253,8 +253,8 @@ const cardData = [
       ["toss", "toss", "toss", "fireball", "fireball", "fireball"],
     ],
     locations: [
-      ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x"],
-      ["y", "y", "y", "y", "y", "y", "y", "y", "y", "y", "y", "y", "y"],
+      ["49", "97", "139", "144", "148", "128", "84", "310", "289", "291", "328", "353", "303"],
+      ["40", "0", "-21", "-18", "-16", "-18", "-50", "-290", "-292", "-289", "-302", "-303", "-330"],
     ]
   },
   {
@@ -271,11 +271,32 @@ const cardData = [
       { key: "Must Find to Win" },
     ],
     groups: [
-      ["key", "right", "right", "right", "phanto", "phanto", "phanto", "phanto", "phanto", "phanto", "phanto"],
+      ["key", "right", "right", "right", "right", "phanto", "phanto", "phanto", "phanto", "phanto", "phanto"],
     ],
     locations: [
-      ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x"],
-      ["y", "y", "y", "y", "y", "y", "y", "y", "y", "y", "y"],
+      ["101", "159", "303", "360", "72", "119", "168", "168", "314", "363", "406"],
+      ["71", "26", "-20", "-64", "-29", "-74", "-118", "-115", "-208", "-253", "-274"],
+    ]
+  },
+  {
+    id: "m2s5",
+    game: "Super Mario Bros. 2",
+    title: "Cross the Waterfall",
+    screen: 5,
+    type: "long",
+    directory: "mario2",
+    directions: ["Find 3 arrows to advance.", "Uncover 3 misses and you lose.", "You must uncover 3 arrows to win."],
+    pictures: [
+      { right: "Find 3 and You Win" },
+      { miss: "Find 3 and You Lose" },
+    ],
+    groups: [
+      ["right", "right", "right", "right", "miss", "miss", "miss"],
+      ["miss", "miss", "miss"]
+    ],
+    locations: [
+      ["82", "117", "170", "161", "299", "347", "395", "97", "299", "369"],
+      ["201", "123", "55", "60", "-98", "-144", "-179", "-30", "-180", "-225"],
     ]
   },
 ];

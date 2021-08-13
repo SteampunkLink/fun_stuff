@@ -34,12 +34,13 @@ const ScratchCardApp = () => {
         <div className="scratch-nav">
           <ul>
             {cardList.map((card) => (
-              <button key={card.id} onClick={() => handleSelectedCard(card.id)}>
-                {card.title}
-              </button>
+              <li key={card.id}><button onClick={() => handleSelectedCard(card.id)}>
+                {card.game} - {card.title}
+              </button></li>
             ))}
           </ul>
         </div>
+
         <div className="scratch-card">
         { flipCard ? 
           (<FlipCard card1={oldCard} card2={selectedCard} />) : 

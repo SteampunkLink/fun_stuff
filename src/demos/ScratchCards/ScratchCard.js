@@ -46,8 +46,8 @@ const ScratchCard = ({ card }) => {
           <h3>{card.game} - Screen {card.screen}</h3>
           <h4>{card.title}</h4>
           <div className="token-description">
-            {card.pictures && card.pictures.map((pic) => (
-              <div>
+            {card.pictures && card.pictures.map((pic, idx) => (
+              <div key={idx}>
                 <div 
                   className="example-token" 
                   style={{ backgroundImage: `url(/nesCards/tokens/token-${Object.keys(pic)[0]}.png)` }}>  

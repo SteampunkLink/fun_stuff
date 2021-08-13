@@ -8,7 +8,7 @@ import WeatherApp from "./demos/WeatherApp/WeatherApp";
 import WeatherState from "./demos/WeatherApp/context/WeatherState";
 
 import ScratchCardApp from "./demos/ScratchCards/ScratchCardApp";
-import ScratchState from "./demos/ScratchCards/context/ScratchState";
+import ScratchState from "./demos/ScratchCards/context/scratchState";
 
 import TodoApp from "./demos/TodoApp/TodoApp";
 import TodoState from "./demos/TodoApp/context/TodoState";
