@@ -19,7 +19,7 @@ const projectData = [
       "Relive the fun of old scratch-off card games from Nintendo digitally and experience what they would have been like. Even better, these are replayable because the scratch-off spaces are randomized.",
     link: "/demo/scratchcard",
     moreInfo:
-      "I bought a bunch of these old Nintendo collector's cards that were released in the 80s that had never been opened. Unfortunately, I soon discovered, that the cards no longer worked as they were so old, it was impossible to scratch off the substance concealing the game icons without damaging the card. That's when I had the idea to make this. Not only can you get a sense of how the game played, the solutions get randomized so it's a different experience each time. Right now there is only one card available, but I will scan more very soon.",
+      "I bought a bunch of these old Nintendo collector's cards that were released in the 80s that had never been opened. Unfortunately, I soon discovered, that the cards no longer worked as they were so old, it was impossible to scratch off the substance concealing the game icons without damaging the card. That's when I had the idea to make this. Not only can you get a sense of how the game played, the solutions get randomized so it's a different experience each time. \n\nThe directions appear under the card when you select one from the menu. The background is created from the stickers that came in the same card packs as the scratch-off game cards.",
   },
   {
     id: 3,
@@ -52,7 +52,7 @@ const projectData = [
       "This is a simple app meant to replicate some of the functions of Mac OS's X now defunct dashbaord.",
     link: "/demo/junkdrawer",
     moreInfo:
-      "Had to replace my Macbook Air recently and discovered that Apple killed the dashboard. I was very sad about this. I loved having a little place to store things I use a lot like the weather widget, calculator, and the calendar. And how useful were those sticky notes? I loved having a dedicated place to store them and jot down little notes to myself whever I needed to. Sure they're still on the desktop, but those get covered with windows and stuff. It's just not the same. I wanted to recreate some of the functionality of those widgets with this app. I may try turning this into a desktop app or something someday.",
+      "Had to replace my Macbook Air recently and discovered that Apple killed the dashboard. I was very sad about this. I loved having a little place to store things I use a lot like the weather widget, calculator, and the calendar. And how useful were those sticky notes? I loved having a dedicated place to store them and jot down little notes to myself whever I needed to. Sure they're still on the desktop, but those get covered with windows and stuff. It's just not the same. I wanted to recreate some of the functionality of those widgets with this app. \n\nThis application will save events and sticky notes to your browsers local storage as well as the widget locations so you should be able to open this on the same browser without losing data. But maybe don't use this for anything too important, just in case. I'd like to try turning this into a desktop app with electron someday.",
   },
   {
     id: 6,
