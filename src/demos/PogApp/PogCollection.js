@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react'
-import DisplaySelector from './DisplaySelector'
-import PogDisplay from './PogDisplay'
-
+import { useState, useEffect, useContext } from 'react'
 import PogContext from "./context/pogContext"
-import digipogData from './context/digipogData'
+
+import DisplaySelector from './components/DisplaySelector'
+import PogDisplay from './components/PogDisplay'
+
+import digipogData from './context/data/digipogData'
 
 const PogCollection = () => {
   const [digipogLevel, selectLevel] = useState(1)
@@ -15,11 +16,13 @@ const PogCollection = () => {
   const convertToArr = (collectionObj) => {
     let result = []
     for (const [key, value] of Object.entries(collectionObj)) {
-      if (parseInt(key.charAt(0)) === digipogLevel) {
+      const splitId = key.split("-")
+      const LID = parseInt(splitId[0])
+      if (LID === digipogLevel) {
         let resultEntry
-        const PID = parseInt(key.split("-")[1])
+        const PID = parseInt(splitId[1])
         resultEntry = {
-          ...digipogData[PID],
+          ...digipogData[LID][PID],
           qty: value
         }
         result.push(resultEntry)
@@ -32,6 +35,7 @@ const PogCollection = () => {
     convertToArr(collection)
     // eslint-disable-next-line
   }, [collection, digipogLevel]) 
+
   return (
     <div className="collection-pane">
       <DisplaySelector type="collection" currentLevel={digipogLevel} handleSelect={selectLevel} />

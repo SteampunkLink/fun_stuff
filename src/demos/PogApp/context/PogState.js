@@ -1,6 +1,13 @@
 import React, { useReducer } from "react"
 import PogContext from "./pogContext"
-import pogReducer, { UPDATE_PLAYER, UPDATE_COLLECTION, SET_ALERT, CLEAR_ALERT } from "./pogReducer"
+import pogReducer, 
+  { UPDATE_PLAYER, 
+    UPDATE_COLLECTION, 
+    SET_DISPLAY, 
+    REMOVE_FROM_DISPLAY, 
+    ADD_TO_GAME_STACK, 
+    UPDATE_GAME 
+  } from "./pogReducer"
 
 const JunkState = (props) => {
   const initialState = {
@@ -8,14 +15,25 @@ const JunkState = (props) => {
     collection: {},
     points: 0,
     slammers: [],
-    alert: "",
+    displayPogs: [],
+    gameData: {
+      gameStart: false,
+      stack: [],
+      slammer: "",
+      mat: "basic",
+      stackLimit: 12,
+      luck: 0
+    }
   }
 
   const [state, dispatch] = useReducer(pogReducer, initialState)
 
-  const setAlert = (msg) => {
-    dispatch({ type: SET_ALERT, payload: msg })
-    setTimeout(() => {dispatch({ type: CLEAR_ALERT })}, 5000)
+  const setDisplay = (arr) => {
+    dispatch({ type: SET_DISPLAY, payload: arr })
+  }
+
+  const removeFromDisplay = (numToSlice) => {
+    dispatch({ type: REMOVE_FROM_DISPLAY, payload: numToSlice })
   }
 
   const updatePlayerData = (newData) => {
@@ -37,6 +55,14 @@ const JunkState = (props) => {
     dispatch({ type: UPDATE_COLLECTION, payload: updatedData })
   }
 
+  const addToGameStack = (pog) => {
+    dispatch({ type: ADD_TO_GAME_STACK, payload: pog })
+  }
+
+  const updateGame = (newData) => {
+    dispatch({ type: UPDATE_GAME, payload: newData })
+  }
+
   return (
     <PogContext.Provider
       value={{
@@ -44,10 +70,14 @@ const JunkState = (props) => {
         collection: state.collection,
         points: state.points,
         slammers: state.slammers,
-        alert: state.alert,
+        displayPogs: state.displayPogs,
+        gameData: state.gameData,
         updatePlayerData,
         updateCollection,
-        setAlert,
+        setDisplay,
+        removeFromDisplay,
+        addToGameStack,
+        updateGame,
       }}
     >
       {props.children}
