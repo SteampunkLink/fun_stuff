@@ -1,5 +1,4 @@
-import React from 'react'
-import { digipogLevels } from './context/digipogData'
+import { digipogLevels } from '../context/data/digipogData'
 
 const Pog = ({ digipog, mode }) => {
   return (

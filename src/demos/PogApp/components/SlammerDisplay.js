@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react'
-import Pog from './Pog'
+import { Fragment, useState, useEffect } from 'react'
+import { slammerData } from '../context/data/digipogData'
 
-const PogDisplay = ({ pogArr, itemsPerPane, mode }) => {
+const SlammerDisplay = ({ itemsPerPane, mode }) => {
   const [panesArr, updatePanes] = useState([])
   const [paneSelect, selectPane] = useState(0)
 
   const createMultiArr = () => {
-    const panes = Math.ceil(pogArr.length / itemsPerPane)
+    const panes = Math.ceil(slammerData.length / itemsPerPane)
     let multiArr = []
     for (let i = 0; i < panes; i++) {
       let newArr = []
       for (let j = 0; j < itemsPerPane; j++) {
-        if (pogArr[(i*4)+j]) newArr.push(pogArr[(i*4)+j])
+        if (slammerData[(i*4)+j]) newArr.push(slammerData[(i*4)+j])
       }
       multiArr.push(newArr)
     }
@@ -40,7 +40,7 @@ const PogDisplay = ({ pogArr, itemsPerPane, mode }) => {
   useEffect(() => {
     createMultiArr()
     // eslint-disable-next-line
-  }, [pogArr])
+  }, [])
 
   return (
     <div className="pog-display-container">
@@ -49,7 +49,21 @@ const PogDisplay = ({ pogArr, itemsPerPane, mode }) => {
         {panesArr.map((pane, idx) => {
           return (
             <div key={idx} className={paneSelect === idx ? "single-pane show" : "single-pane"}>
-              {pane.map((pog) => <Pog key={pog.id} digipog={pog} mode={mode} />)}
+              {pane.map((slammer, idx) => {
+                return (
+                  <div key={idx} className="pog-area">
+                    <div className="pog-title">{slammer.name}</div>
+                    <div className="pog-image-bg" style={{ borderRadius: "50%", background: slammer.color, minHeight: "125px" }}></div>
+                    <div className="pog-description">{slammer.description}</div>
+                    { mode === "Purchase" && (
+                      <Fragment>
+                        <div className="pog-details">Purchase Price: {slammer.cost} Points</div>
+                        <button>{mode}</button>
+                      </Fragment>
+                    ) }
+                  </div>
+                )
+              })}
             </div>
           )
         })}
@@ -59,4 +73,4 @@ const PogDisplay = ({ pogArr, itemsPerPane, mode }) => {
   )
 }
 
-export default PogDisplay
+export default SlammerDisplay
