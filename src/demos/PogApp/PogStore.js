@@ -7,7 +7,7 @@ import PogDisplay from './components/PogDisplay'
 import SlammerDisplay from './components/SlammerDisplay'
 
 import machine from "./img/pogMachine.png"
-import digipogData from './context/data/digipogData'
+import digipogData from './context/digipogData'
 
 const PogStore = () => {
   const [digipogLevel, selectLevel] = useState(1)

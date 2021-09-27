@@ -5,7 +5,7 @@ import { addToCollection } from "../context/gameLogic"
 
 const PogModal = () => {
   const pogContext = useContext(PogContext)
-  const { displayPogs, removeFromDisplay, gameData, updateCollection } = pogContext
+  const { displayPogs, removeFromDisplay, gameData, updateCollection, updatePlayerData, addToGameStack } = pogContext
 
   const [modalClass, setClass] = useState("pog-modal modal-close")
   const [displayArr, setDisplayArr] = useState([])
@@ -52,8 +52,20 @@ const PogModal = () => {
         lostPogs.push(pog)
       }
     })
-    const myNewPogs = addToCollection(wonPogs)
-    updateCollection(myNewPogs)
+
+    if (gameData.gamePhase !== "opponentTurn") {
+      const myNewPogs = addToCollection(wonPogs)
+      updateCollection(myNewPogs)
+    }
+    
+    if (gameData.gamePhase === "playerTurn") {
+      console.log("WON")
+      updatePlayerData({ points: wonPogs.length })
+    }
+
+    lostPogs.forEach((pog) => {
+      addToGameStack(pog.id)
+    })
 
     const l = displayArr.length
     setDisplayArr([])

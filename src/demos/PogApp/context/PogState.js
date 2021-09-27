@@ -5,11 +5,14 @@ import pogReducer,
     UPDATE_COLLECTION, 
     SET_DISPLAY, 
     REMOVE_FROM_DISPLAY, 
+    UPDATE_SLAMMERS,
     ADD_TO_GAME_STACK, 
-    UPDATE_GAME 
+    UPDATE_GAME,
+    SET_ALERT,
+    CLEAR_ALERT
   } from "./pogReducer"
 
-const JunkState = (props) => {
+const PogState = (props) => {
   const initialState = {
     credits: 0,
     collection: {},
@@ -17,12 +20,17 @@ const JunkState = (props) => {
     slammers: [],
     displayPogs: [],
     gameData: {
-      gameStart: false,
+      gamePhase: "gameOver",
       stack: [],
-      slammer: "",
+      slammer: null,
+      opponentSlammer: null,
       mat: "basic",
       stackLimit: 12,
       luck: 0
+    },
+    alert: {
+      msg: "",
+      color: "black"
     }
   }
 
@@ -55,12 +63,21 @@ const JunkState = (props) => {
     dispatch({ type: UPDATE_COLLECTION, payload: updatedData })
   }
 
+  const updateSlammers = (newSlammerArr) => {
+    dispatch({ type: UPDATE_SLAMMERS, payload: newSlammerArr })
+  }
+
   const addToGameStack = (pog) => {
     dispatch({ type: ADD_TO_GAME_STACK, payload: pog })
   }
 
   const updateGame = (newData) => {
     dispatch({ type: UPDATE_GAME, payload: newData })
+  }
+
+  const setAlert = (msg, color) => {
+    dispatch({ type: SET_ALERT, payload: { msg, color }})
+    setTimeout(() => {dispatch({ type: CLEAR_ALERT })}, 5000)
   }
 
   return (
@@ -72,12 +89,15 @@ const JunkState = (props) => {
         slammers: state.slammers,
         displayPogs: state.displayPogs,
         gameData: state.gameData,
+        alert: state.alert,
         updatePlayerData,
         updateCollection,
         setDisplay,
         removeFromDisplay,
+        updateSlammers,
         addToGameStack,
         updateGame,
+        setAlert,
       }}
     >
       {props.children}
@@ -85,4 +105,4 @@ const JunkState = (props) => {
   )
 }
 
-export default JunkState
+export default PogState

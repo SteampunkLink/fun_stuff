@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import { digipogLevels } from '../context/data/digipogData'
+import { digipogLevels } from '../context/digipogData'
 
 const DisplaySelector = ({ type, currentLevelSelected, handleSelect }) => {
   return (

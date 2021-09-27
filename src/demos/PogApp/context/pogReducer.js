@@ -2,8 +2,11 @@ export const UPDATE_PLAYER = "UPDATE_PLAYER"
 export const UPDATE_COLLECTION = "UPDATE_COLLECTION"
 export const SET_DISPLAY = "SET_DISPLAY"
 export const REMOVE_FROM_DISPLAY = "REMOVE_FROM_DISPLAY"
+export const UPDATE_SLAMMERS = "UPDATE_SLAMMERS"
 export const ADD_TO_GAME_STACK = "ADD_TO_GAME_STACK"
 export const UPDATE_GAME = "UPDATE_GAME"
+export const SET_ALERT = "SET_ALERT"
+export const CLEAR_ALERT = "CLEAR_ALERT"
 
 const weatherReducer = (state, action) => {
   switch (action.type) {
@@ -18,6 +21,7 @@ const weatherReducer = (state, action) => {
         displayPogs: state.displayPogs.slice(action.payload, state.displayPogs.length)
       }
     case UPDATE_PLAYER:
+      console.log(action.payload)
       return {
         ...state,
         ...action.payload.updatedData,
@@ -29,6 +33,11 @@ const weatherReducer = (state, action) => {
           ...state.collection,
           ...action.payload,
         }
+      }
+    case UPDATE_SLAMMERS:
+      return {
+        ...state,
+        slammers: action.payload
       }
     case ADD_TO_GAME_STACK:
       return {
@@ -45,6 +54,16 @@ const weatherReducer = (state, action) => {
           ...state.gameData,
           ...action.payload
         }
+      }
+    case SET_ALERT:
+      return {
+        ...state,
+        alert: action.payload
+      }
+    case CLEAR_ALERT:
+      return {
+        ...state,
+        alert: { msg: "", color: "black" }
       }
     default:
       return { ...state }

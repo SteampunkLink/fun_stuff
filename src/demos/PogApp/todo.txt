@@ -1,0 +1,7 @@
+> Keep Data type consistant (deal with ids in reducer, never pog objects)
+
+> Handle Opponent Turn
+
+> Handle Selling Pogs
+
+> Fix points not updating
