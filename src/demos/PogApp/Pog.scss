@@ -64,11 +64,14 @@
           width: 100%;
         }
         .spin-pog-front {
-          background-size: cover;
+          background-size: 130px;
           height: 100%;
           transform: rotateY(0deg);
           width: 100%;
           z-index: 2;
+          img {
+            width: 100%;
+          }
         }
         .spin-pog-back {
           background-size: cover;
@@ -127,11 +130,15 @@
       width: 50%;
       span {
         margin: 0 12px;
-        &:first-child {
+        &.credits-display {
           color: rgb(207, 140, 140);
         }
-        &:last-child {
+        &.points-display {
+          color: rgb(207, 180, 140);
+        }
+        &.slammer-display {
           color: rgb(163, 163, 223);
+          font-size: 0.8em;
         }
       }
     }
@@ -191,6 +198,7 @@
       width: 25px;
       &:hover {
         box-shadow: 0px 0px 0px 5px #ffffff;
+        cursor: pointer;
       }
       &.active,
       &.active:hover {
@@ -207,6 +215,7 @@
   flex-direction: row;
   height: 100%;
   justify-content: center;
+  width: 100%;
   .display-nav-arrow {
     background-color: rgb(44, 44, 105);
     border-radius: 50px;
@@ -258,10 +267,6 @@
             }
           }
           .pog-details {
-            flex: 1.5;
-            margin-top: 10px;
-          }
-          button {
             align-self: flex-end;
             background-color: transparent;
             border: #666 3px solid;
@@ -269,10 +274,16 @@
             cursor: pointer;
             flex: 1;
             margin-top: 8px;
+            min-height: 50px;
             width: 100%;
             &:hover {
               background-color: #ccc;
               color: black;
+            }
+            &:disabled {
+              background-color: #666;
+              color: #aaa;
+              cursor: initial;
             }
           }
         }
@@ -347,5 +358,53 @@
   }
   .game-scene {
     width: 30%;
+  }
+}
+
+/* Pog Game Meter */
+.meter-container {
+  height: 100%;
+  position: relative;
+  .indicator {
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid yellow;
+    height: 0;
+    left: 40%;
+    position: absolute;
+    width: 0;
+    &.moving {
+      animation: indicatorMove 1s linear 0s infinite;
+    }
+  }
+  .meter {
+    background-color: #eee;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    left: 50%;
+    position: absolute;
+    width: 16px;
+    .bonus-area {
+      background-color: lime;
+      height: 30%;
+    }
+    .miss-area {
+      background-color: crimson;
+      height: 10%;
+    }
+  }
+}
+
+@keyframes indicatorMove {
+  0% {
+    top: -1%;
+  }
+  50% {
+    top: 97%;
+  }
+  100% {
+    top: -1%;
   }
 }

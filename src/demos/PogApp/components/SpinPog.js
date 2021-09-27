@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { digipogLevels } from '../context/data/digipogData'
+import { digipogLevels } from '../context/digipogData'
 
 const SpinPog = ({ pog, didWin }) => {
   const [spinTime, setSpinTime] = useState(0)
@@ -21,7 +21,9 @@ const SpinPog = ({ pog, didWin }) => {
     <div className="modal-area">
       <div className="spin-pog-container">
         <div className={`spin-pog spin-pog-${didWin}`} style={{ animationIterationCount: spinTime }}>
-          <div className="spin-pog-front spin-pog-face" style={{ backgroundImage: `url(/digiPogs/${pog.directory}/${pog.img}.png)` }}></div>
+          <div className="spin-pog-front spin-pog-face" style={{ 
+            background: digipogLevels[pog.level].hexCode,
+          }}><img src={`/digiPogs/${pog.directory}/${pog.img}.png`} alt={pog.name} /> </div>
           <div className="spin-pog-back spin-pog-face" style={{ background: digipogLevels[pog.level].hexCode }}></div>
         </div>
       </div>

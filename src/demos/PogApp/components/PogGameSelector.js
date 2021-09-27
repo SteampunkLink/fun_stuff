@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react'
 import PogContext from '../context/pogContext'
-import digipogData, { digipogLevels } from '../context/data/digipogData'
+import digipogData, { digipogLevels } from '../context/digipogData'
 
 const PogGameSelector = ({ handleAddToStack }) => {
   const pogContext = useContext(PogContext)

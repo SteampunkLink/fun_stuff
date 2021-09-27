@@ -3,8 +3,9 @@ import PogContext from "./context/pogContext"
 
 import DisplaySelector from './components/DisplaySelector'
 import PogDisplay from './components/PogDisplay'
+import SlammerDisplay from './components/SlammerDisplay'
 
-import digipogData from './context/data/digipogData'
+import digipogData from './context/digipogData'
 
 const PogCollection = () => {
   const [digipogLevel, selectLevel] = useState(1)
@@ -18,7 +19,7 @@ const PogCollection = () => {
     for (const [key, value] of Object.entries(collectionObj)) {
       const splitId = key.split("-")
       const LID = parseInt(splitId[0])
-      if (LID === digipogLevel) {
+      if (LID === digipogLevel && value > 0) {
         let resultEntry
         const PID = parseInt(splitId[1])
         resultEntry = {
@@ -41,7 +42,12 @@ const PogCollection = () => {
       <DisplaySelector type="collection" currentLevel={digipogLevel} handleSelect={selectLevel} />
       <div className="collection-main">
         <div className="collection-window">
-          <PogDisplay pogArr={displayArray} itemsPerPane={4} mode="Sell" />
+          { !isNaN(digipogLevel) ? (
+            <PogDisplay pogArr={displayArray} itemsPerPane={4} mode="Sell" />
+          ) : (
+            <SlammerDisplay pogArr={displayArray} itemsPerPane={4} mode="Sell" />
+          ) }
+          
         </div>
       </div>
       

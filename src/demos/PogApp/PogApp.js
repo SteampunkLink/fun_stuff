@@ -4,6 +4,7 @@ import PogStore from "./PogStore"
 import PogCollection from "./PogCollection"
 import PogGame from "./PogGame"
 import PogModal from "./components/PogModal"
+import { slammerData } from "./context/digipogData"
 import "./Pog.scss";
 
 const PogApp = () => {
@@ -11,10 +12,10 @@ const PogApp = () => {
   const [displayedPanel, selectDisplay] = useState(1)
 
   const pogContext = useContext(PogContext)
-  const { credits, points, alert, } = pogContext
+  const { credits, points, alert, gameData } = pogContext
 
   const handleSwitch = (x) => {
-    if (x !== activePanel) {
+    if (x !== activePanel && gameData.gamePhase === "gameOver") {
       selectDisplay(null)
       selectPanel(x)
       setTimeout(() => selectDisplay(x), 700)
@@ -28,11 +29,14 @@ const PogApp = () => {
           <div className="pog-header-top">
             <div className="pog-header-top-left">Welcome to DigiPogs</div>
             <div className="pog-header-top-right">
-              <span>Credits: {credits}</span>
-              <span>Points: {points}</span>
+              <span className="credits-display">Credits: {credits}</span>
+              <span className="points-display">Points: {points}</span>
+              {gameData.slammer !== null && (
+                <span className="slammer-display">{slammerData[gameData.slammer].name} Slammer</span>
+              )}
             </div>
           </div>
-          <div className="pog-header-bottom">{alert}</div>
+          {!!alert.msg && <div className="pog-header-bottom" style={{ color: alert.color }}>{alert.msg}</div>}
         </div>
         <div className="pog-section-container">
           <div

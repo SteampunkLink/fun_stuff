@@ -1,17 +1,22 @@
-import { Fragment, useState, useEffect } from 'react'
-import { slammerData } from '../context/data/digipogData'
+import { useState, useEffect, useContext } from 'react'
+import PogContext from '../context/pogContext'
+import { slammerData } from '../context/digipogData'
 
 const SlammerDisplay = ({ itemsPerPane, mode }) => {
+  const pogContext = useContext(PogContext)
+  const { points, slammers, updatePlayerData, updateSlammers, updateGame, gameData } = pogContext
+
   const [panesArr, updatePanes] = useState([])
   const [paneSelect, selectPane] = useState(0)
 
   const createMultiArr = () => {
+    const arrToDisplay = mode === "Sell" ? slammers : [...Array(slammerData.length).keys()]
     const panes = Math.ceil(slammerData.length / itemsPerPane)
     let multiArr = []
     for (let i = 0; i < panes; i++) {
       let newArr = []
       for (let j = 0; j < itemsPerPane; j++) {
-        if (slammerData[(i*4)+j]) newArr.push(slammerData[(i*4)+j])
+        if (slammerData[arrToDisplay[(i*itemsPerPane)+j]]) newArr.push(slammerData[arrToDisplay[(i*itemsPerPane)+j]])
       }
       multiArr.push(newArr)
     }
@@ -42,24 +47,48 @@ const SlammerDisplay = ({ itemsPerPane, mode }) => {
     // eslint-disable-next-line
   }, [])
 
+  const handlePurchase = (cost, slammer) => {
+    if (cost <= points && !slammers.includes(slammer)) {
+      let pointsCost = cost * -1
+      updatePlayerData({ points: pointsCost })
+      let updatedSlammersArray = [...slammers, slammer]
+      updateSlammers(updatedSlammersArray)
+    }
+  }
+
+  const selectSlammer = (slammerIndex) => {
+    updateGame({ slammer: slammerIndex })
+  }
+
   return (
     <div className="pog-display-container">
       {panesArr.length > 1 && (<div onClick={() => handleSelectPane("prev")} className="display-nav-arrow">Prev</div>)}
       <div  className="panes-container">
-        {panesArr.map((pane, idx) => {
+        {panesArr.map((pane, idxi) => {
           return (
-            <div key={idx} className={paneSelect === idx ? "single-pane show" : "single-pane"}>
-              {pane.map((slammer, idx) => {
+            <div key={idxi} className={paneSelect === idxi ? "single-pane show" : "single-pane"}>
+              {pane.map((slammer, idxj) => {
                 return (
-                  <div key={idx} className="pog-area">
+                  <div key={idxj} className="pog-area">
                     <div className="pog-title">{slammer.name}</div>
                     <div className="pog-image-bg" style={{ borderRadius: "50%", background: slammer.color, minHeight: "125px" }}></div>
                     <div className="pog-description">{slammer.description}</div>
-                    { mode === "Purchase" && (
-                      <Fragment>
-                        <div className="pog-details">Purchase Price: {slammer.cost} Points</div>
-                        <button>{mode}</button>
-                      </Fragment>
+                    { mode === "Purchase" ? (
+                      <button 
+                        disabled={points < slammer.cost} 
+                        className="pog-details" 
+                        onClick={() => handlePurchase(slammer.cost, (idxi*itemsPerPane)+idxj)}
+                      >
+                        Purchase for {slammer.cost} Points
+                      </button>
+                    ) : (
+                      <button 
+                        disabled={gameData.slammer === ((idxi*itemsPerPane)+idxj)}
+                        className="pog-details" 
+                        onClick={() => selectSlammer((idxi*itemsPerPane)+idxj)}
+                      >
+                        Select
+                      </button>
                     ) }
                   </div>
                 )

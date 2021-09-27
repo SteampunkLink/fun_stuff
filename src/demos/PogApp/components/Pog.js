@@ -1,6 +1,25 @@
-import { digipogLevels } from '../context/data/digipogData'
+import { useContext } from 'react'
+import PogContext from '../context/pogContext'
+import { digipogLevels } from '../context/digipogData'
 
 const Pog = ({ digipog, mode }) => {
+  const pogContext = useContext(PogContext)
+  const { credits, updatePlayerData, updateCollection } = pogContext
+
+  const handlePurchase = () => {
+    if (digipogLevels[digipog.level].credits <= credits) {
+      let playerCredits = digipogLevels[digipog.level].credits * -1
+      updatePlayerData({ credits: playerCredits })
+      updateCollection({ [digipog.id]: 1 })
+    }
+  }
+
+  const handleSale = () => {
+    let playerCredits = digipogLevels[digipog.level].credits / 2
+    updatePlayerData({ credits: playerCredits })
+    updateCollection({ [digipog.id]: -1 })
+  }
+
   return (
     <div className="pog-area">
       <div className="pog-title">{digipog.name}</div>
@@ -8,9 +27,17 @@ const Pog = ({ digipog, mode }) => {
         <img src={`/digiPogs/${digipog.directory}/${digipog.img}.png`} alt={digipog.name} />
       </div>
       { digipog.qty && (<div className="pog-quantity">x {digipog.qty}</div>)}
-      { mode === "Purchase" && (<div className="pog-details">Purchase Price: {digipogLevels[digipog.level].credits} Credits</div>) }
-      { mode === "Sell" && (<div className="pog-details">Sell Price: {digipogLevels[digipog.level].credits / 2} Credits</div>) }
-      <button>{mode}</button>
+      { mode === "Purchase" && (
+        <button disabled={credits < digipogLevels[digipog.level].credits} className="pog-details" onClick={handlePurchase}>
+          Purchase for {digipogLevels[digipog.level].credits} Credits
+        </button>
+      ) }
+      { mode === "Sell" && (
+        <button className="pog-details" onClick={handleSale}>
+          Sell for {digipogLevels[digipog.level].credits / 2} Credits
+        </button>
+      ) }
+      
     </div>
   )
 }
