@@ -5,7 +5,16 @@ import { addToCollection } from "../context/gameLogic"
 
 const PogModal = () => {
   const pogContext = useContext(PogContext)
-  const { displayPogs, removeFromDisplay, gameData, updateCollection, updatePlayerData, addToGameStack } = pogContext
+  const { 
+    displayPogs, 
+    removeFromDisplay, 
+    gameData, 
+    updateCollection, 
+    updatePlayerData, 
+    addToGameStack, 
+    updateGame,
+    setAlert,
+  } = pogContext
 
   const [modalClass, setClass] = useState("pog-modal modal-close")
   const [displayArr, setDisplayArr] = useState([])
@@ -42,7 +51,7 @@ const PogModal = () => {
     setWonArr(resultArr)
   }
 
-  const resetModal = () => {
+  const resetModal = (gd) => {
     let wonPogs = []
     let lostPogs = []
     displayPogs.forEach((pog, idx) => {
@@ -53,14 +62,18 @@ const PogModal = () => {
       }
     })
 
-    if (gameData.gamePhase !== "opponentTurn") {
+    if (gd.gamePhase === "opponentTurn") {
+      updateGame({ gamePhase: "playerTurn" })
+    } else {
       const myNewPogs = addToCollection(wonPogs)
       updateCollection(myNewPogs)
     }
     
-    if (gameData.gamePhase === "playerTurn") {
-      console.log("WON")
+    if (gd.gamePhase === "playerTurn") {
+      console.log("# of won pogs", wonPogs.length);
       updatePlayerData({ points: wonPogs.length })
+      updateGame({ gamePhase: "opponentTurn" })
+      setAlert("Now its your opponent's turn!", "yellow")
     }
 
     lostPogs.forEach((pog) => {
@@ -76,9 +89,15 @@ const PogModal = () => {
     <div className={modalClass}>
       <div className="pog-modal-content">
         {displayArr.map((pog, idx) => (
-          <SpinPog pog={pog} didWin={wonArray[idx]} key={idx} />
+          <SpinPog pog={pog} didWin={wonArray[idx]} gamePhase={gameData.gamePhase} key={idx} />
         ))}
-        {isDoneSpinning && (<button onClick={resetModal}>Collect</button>)}
+        {
+          isDoneSpinning && (
+            <button onClick={() => resetModal(gameData)}>
+              {`${gameData.gamePhase !== "opponentTurn" ? "Collect" : "Too Bad"}`}
+            </button>
+          )
+        }
       </div>
     </div>
   )

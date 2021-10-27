@@ -45,9 +45,11 @@ const PogState = (props) => {
   }
 
   const updatePlayerData = (newData) => {
+    console.log("New Data", newData.points)
     let updatedData = {}
-    if (newData.credits) updatedData.credits = state.credits + newData.credits
-    if (newData.points) updatedData.points = state.points + newData.points
+    if (newData.credits !== undefined) updatedData.credits = state.credits + newData.credits
+    if (newData.points !== undefined) updatedData.points = state.points + newData.points
+    console.log("Updated Data", updatedData)
     dispatch({ type: UPDATE_PLAYER, payload: updatedData })
   }
 

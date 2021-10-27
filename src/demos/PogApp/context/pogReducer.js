@@ -21,10 +21,9 @@ const weatherReducer = (state, action) => {
         displayPogs: state.displayPogs.slice(action.payload, state.displayPogs.length)
       }
     case UPDATE_PLAYER:
-      console.log(action.payload)
       return {
         ...state,
-        ...action.payload.updatedData,
+        ...action.payload,
       }
     case UPDATE_COLLECTION:
       return {
