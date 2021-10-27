@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import PogContext from './context/pogContext'
 
 import PogGameSelector from './components/PogGameSelector'
@@ -8,10 +8,24 @@ import { slammerData } from './context/digipogData'
 
 const PogGame = () => {
   const [stackArr, updateStack] = useState([])
-  const [indicatorActive, toggleIndicator] = useState(true)
+  const [indicatorActive, toggleIndicator] = useState(false)
 
   const pogContext = useContext(PogContext)
   const { updateCollection, gameData, addToGameStack, setAlert, updateGame, setDisplay } = pogContext
+
+  useEffect(() => {
+    if (gameData.gamePhase !== "gameOver" && !gameData.stack.length) {
+      setAlert("Game is over.", "green")
+      updateGame({ gamePhase: "gameOver" })
+    }
+    if (gameData.gamePhase === "opponentTurn") {
+      setTimeout(() => handleSlam(50), 2000)
+    }
+    if (gameData.gamePhase === "playerTurn") {
+      toggleIndicator(true)
+    }
+    // eslint-disable-next-line
+  }, [gameData.gamePhase])
 
   const addToStack = (id) => {
     if (stackArr.length < gameData.stackLimit) {
@@ -47,7 +61,7 @@ const PogGame = () => {
 
   const handleSlam = (slamPower) => {
     if (slamPower < 10 || slamPower > 90) {
-      setAlert("You missed!", "red")
+      setAlert("MISS!", "red")
     } else {
       setAlert("SLAM!!!", "green")
       const toppledPogs = slam(gameData.stack, gameData.slammer, 0)
@@ -60,7 +74,6 @@ const PogGame = () => {
   return (
     <div className="game-pane">
       <PogGameSelector handleAddToStack={addToStack} />
-      {console.log(gameData.stack)}
       <div className="game-board">
         <div className="game-controls">
           { gameData.gamePhase === "gameOver" && <button onClick={startGame}>Start Game!</button> }
