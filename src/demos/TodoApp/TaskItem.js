@@ -29,6 +29,7 @@ const TaskItem = ({ task, level }) => {
     if (level === "bottom") {
       setAbove("middle");
     }
+    // eslint-disable-next-line
   }, []);
 
   return (

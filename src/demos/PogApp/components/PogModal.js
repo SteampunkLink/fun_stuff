@@ -70,7 +70,6 @@ const PogModal = () => {
     }
     
     if (gd.gamePhase === "playerTurn") {
-      console.log("# of won pogs", wonPogs.length);
       updatePlayerData({ points: wonPogs.length })
       updateGame({ gamePhase: "opponentTurn" })
       setAlert("Now its your opponent's turn!", "yellow")

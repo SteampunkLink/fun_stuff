@@ -4,13 +4,16 @@ import { digipogLevels } from '../context/digipogData'
 
 const Pog = ({ digipog, mode }) => {
   const pogContext = useContext(PogContext)
-  const { credits, updatePlayerData, updateCollection } = pogContext
+  const { credits, updatePlayerData, updateCollection, setAlert } = pogContext
 
   const handlePurchase = () => {
     if (digipogLevels[digipog.level].credits <= credits) {
+      setAlert(`Purchased ${digipog.name}`, "green")
       let playerCredits = digipogLevels[digipog.level].credits * -1
       updatePlayerData({ credits: playerCredits })
       updateCollection({ [digipog.id]: 1 })
+    } else {
+      setAlert("Not enough credits to purchase.", "red")
     }
   }
 
