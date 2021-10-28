@@ -3,7 +3,7 @@ const projectData = [
     id: 1,
     title: "Retro Weather App",
     imageSrc: "/screenShots/weatherScreen.png",
-    imageAlt: "random",
+    imageAlt: "screenshot of retro weather app",
     description:
       "Ever get nastalgic for the old Weather Channel updates? The soothing music, waiting to see the latest weather report. No? Just me, huh? Oh well. Maybe you'll enjoy this anyway.",
     link: "/demo/retroweather",
@@ -14,7 +14,7 @@ const projectData = [
     id: 2,
     title: "Nintendo Scratch Cards",
     imageSrc: "/screenShots/scratchScreen.png",
-    imageAlt: "random",
+    imageAlt: "screenshot of the Nintendo Scratch-off card game app",
     description:
       "Relive the fun of old scratch-off card games from Nintendo digitally and experience what they would have been like. Even better, these are replayable because the scratch-off spaces are randomized.",
     link: "/demo/scratchcard",
@@ -25,7 +25,7 @@ const projectData = [
     id: 3,
     title: "ToDo App",
     imageSrc: "/screenShots/todoScreen.png",
-    imageAlt: "random",
+    imageAlt: "screenshot of the todo app",
     description:
       "Yeah yeah, EVERY entry level coder has a simple todo app in their portfolio. I thought I'd make something a little more interesting that the average todo list.",
     link: "/demo/todo",
@@ -35,35 +35,24 @@ const projectData = [
   {
     id: 4,
     title: "Generic Milk Cap Game",
-    imageSrc: "https://picsum.photos/seed/pogs/300/200",
-    imageAlt: "random",
+    imageSrc: "/screenShots/pogScreen.png",
+    imageAlt: "Screenshot of the milk cap game",
     description:
       "Relive a little bit of the joy of playing a game of p... I mean, um milk caps. So it's mostly just a clicker game here, but did anyone actually play the game as much as they just collected the little discs anyway?",
     link: "/demo/caps",
     moreInfo:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, commodi? Saepe autem enim quam magni fugit modi deserunt tempora et fuga! Exercitationem neque totam quam soluta pariatur similique blanditiis veritatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, doloribus asperiores. Fuga, similique quisquam! Asperiores, voluptatibus sed laborum natus quo, veniam dolor cumque in quibusdam aliquid aliquam atque! Repudiandae, nesciunt!",
+      "This game ended up being a much bigger project than I had planned for any of these to be. But I'm happy with the way it's coming along. You can get free common (white) caps from the machine in the store and use them to play for higher ranked caps against an AI opponent. With better caps you can either sell them for credits to buy others and complete your collection, or wager them for even better capz. Everytime you win caps, you get points which you can use on better slammers or on the random pog vending machine. Your progress will even be stored in your browser's local storage and load when you come back.",
   },
   {
     id: 5,
     title: "Junk Drawer",
     imageSrc: "/screenShots/junkScreen.png",
-    imageAlt: "random",
+    imageAlt: "screenshot of the junk drawer app",
     description:
       "This is a simple app meant to replicate some of the functions of Mac OS's X now defunct dashbaord.",
     link: "/demo/junkdrawer",
     moreInfo:
       "Had to replace my Macbook Air recently and discovered that Apple killed the dashboard. I was very sad about this. I loved having a little place to store things I use a lot like the weather widget, calculator, and the calendar. And how useful were those sticky notes? I loved having a dedicated place to store them and jot down little notes to myself whever I needed to. Sure they're still on the desktop, but those get covered with windows and stuff. It's just not the same. I wanted to recreate some of the functionality of those widgets with this app. \n\nThis application will save events and sticky notes to your browsers local storage as well as the widget locations so you should be able to open this on the same browser without losing data. But maybe don't use this for anything too important, just in case. I'd like to try turning this into a desktop app with electron someday.",
-  },
-  {
-    id: 6,
-    title: "Test 4",
-    imageSrc: "https://picsum.photos/seed/zack/300/200",
-    imageAlt: "random",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas saepe blanditiis inventore laboriosam! Libero, aliquam repellat laborum fugit voluptate officiis praesentium nihil nam ea porro temporibus, repellendus, quaerat assumend quibusdam?",
-    link: "#",
-    moreInfo:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, commodi? Saepe autem enim quam magni fugit modi deserunt tempora et fuga! Exercitationem neque totam quam soluta pariatur similique blanditiis veritatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, doloribus asperiores. Fuga, similique quisquam! Asperiores, voluptatibus sed laborum natus quo, veniam dolor cumque in quibusdam aliquid aliquam atque! Repudiandae, nesciunt!",
   },
 ];
 

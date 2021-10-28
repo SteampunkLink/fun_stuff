@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react'
-import { getRandomPogs } from './context/gameLogic'
+import { getBoosterPack, getRandomPogs } from './context/gameLogic'
 import PogContext from "./context/pogContext"
 
 import DisplaySelector from './components/DisplaySelector'
@@ -15,12 +15,24 @@ const PogStore = () => {
   const [displayArray, changeDisplay] = useState([])
 
   const pogContext = useContext(PogContext)
-  const { setDisplay, updateGame } = pogContext
+  const { points, setDisplay, updateGame, updatePlayerData, setAlert } = pogContext
 
-  const dispensePogs = (arr) => {
-    const fiveRandomPogs = getRandomPogs(arr, 5)
-    updateGame({ luck: 100 })
-    setDisplay(fiveRandomPogs)
+  const dispensePogs = (machine) => {
+    if (machine !== "booster" || points >= 5) {
+      let fiveRandomPogs
+      if (machine === "freebies") {
+        fiveRandomPogs = getRandomPogs(digipogData[0], 5)
+      }
+      if (machine === "booster") {
+        fiveRandomPogs = getBoosterPack(5)
+        updatePlayerData({ points: -5 })
+      }
+      updateGame({ luck: 100 })
+      setDisplay(fiveRandomPogs)
+    } else {
+      setAlert("You don't have enough points for that.", "red")
+    }
+    
   }
 
   const handleSelectLevel = (select) => {
@@ -60,11 +72,11 @@ const PogStore = () => {
           <div className="store-machines">
             <div className="store-dispenser">
               <img src={machine} alt="simply drawn digipog dispensing machine filled with white digipogs" />
-              <button onClick={() => dispensePogs(digipogData[0])}>Get 5 White Digipogs <br />(FREE!)</button>
+              <button onClick={() => dispensePogs("freebies")}>Get 5 White Digipogs <br />(FREE!)</button>
             </div>
             <div className="store-dispenser">
               <img src={machine} alt="simply drawn digipog dispensing machine filled with white digipogs" />
-              <button onClick={() => console.log("5 random")}>Get Digipog Booster Pack <br />(5 Points)</button>
+              <button onClick={() => dispensePogs("booster")}>Get Digipog Booster Pack <br />(5 Points)</button>
             </div>
           </div>
         )}

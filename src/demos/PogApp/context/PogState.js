@@ -14,7 +14,7 @@ import pogReducer,
 
 const PogState = (props) => {
   const initialState = {
-    credits: 0,
+    credits: 10,
     collection: {},
     points: 0,
     slammers: [],
@@ -36,6 +36,14 @@ const PogState = (props) => {
 
   const [state, dispatch] = useReducer(pogReducer, initialState)
 
+  const loadPlayerDataFromLocalStorage = () => {
+    const localStorageStr = localStorage.getItem("spl-pog-data")
+    if (localStorageStr) {
+      const localStorageObj = JSON.parse(localStorageStr)
+      dispatch({ type: UPDATE_PLAYER, payload: localStorageObj })
+    }
+  }
+
   const setDisplay = (arr) => {
     dispatch({ type: SET_DISPLAY, payload: arr })
   }
@@ -45,11 +53,9 @@ const PogState = (props) => {
   }
 
   const updatePlayerData = (newData) => {
-    console.log("New Data", newData.points)
     let updatedData = {}
     if (newData.credits !== undefined) updatedData.credits = state.credits + newData.credits
     if (newData.points !== undefined) updatedData.points = state.points + newData.points
-    console.log("Updated Data", updatedData)
     dispatch({ type: UPDATE_PLAYER, payload: updatedData })
   }
 
@@ -92,6 +98,7 @@ const PogState = (props) => {
         displayPogs: state.displayPogs,
         gameData: state.gameData,
         alert: state.alert,
+        loadPlayerDataFromLocalStorage,
         updatePlayerData,
         updateCollection,
         setDisplay,

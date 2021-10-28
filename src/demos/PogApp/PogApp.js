@@ -1,10 +1,11 @@
-import { useState, useContext, Fragment } from "react"
+import { useState, useContext, Fragment, useEffect } from "react"
 import PogContext from "./context/pogContext"
 import PogStore from "./PogStore"
 import PogCollection from "./PogCollection"
 import PogGame from "./PogGame"
 import PogModal from "./components/PogModal"
 import { slammerData } from "./context/digipogData"
+import { savePlayerDataToLocalStorage } from "./context/gameLogic"
 import "./Pog.scss";
 
 const PogApp = () => {
@@ -12,7 +13,15 @@ const PogApp = () => {
   const [displayedPanel, selectDisplay] = useState(1)
 
   const pogContext = useContext(PogContext)
-  const { credits, points, alert, gameData } = pogContext
+  const { credits, collection, points, slammers, alert, gameData, loadPlayerDataFromLocalStorage } = pogContext
+
+  useEffect(() => {
+    loadPlayerDataFromLocalStorage()
+    return () => {
+      savePlayerDataToLocalStorage(credits, points, collection, slammers)
+    }
+    // eslint-disable-next-line
+  }, [])
 
   const handleSwitch = (x) => {
     if (x !== activePanel && gameData.gamePhase === "gameOver") {
