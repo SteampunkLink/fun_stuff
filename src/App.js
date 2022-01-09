@@ -1,4 +1,4 @@
-// import { Fragment } from "react";
+import { Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.scss";
 import Projects from "./components/Projects.js";
@@ -15,6 +15,8 @@ import TodoState from "./demos/TodoApp/context/TodoState";
 
 import JunkDrawerApp from "./demos/JunkDrawer/JunkDrawerApp";
 import JunkState from "./demos/JunkDrawer/context/JunkState";
+
+import PaintApp from "./demos/PaintApp/PaintApp";
 
 function App() {
   return (
@@ -34,6 +36,7 @@ function App() {
           />
           <Demo component={TodoApp} context={TodoState} path="/demo/todo" />
           <Demo component={JunkDrawerApp} context={JunkState} path="/demo/junkdrawer" />
+          <Demo component={PaintApp} context={Fragment} path="/demo/splpaint" />
         </Switch>
       </Router>
     </div>

@@ -1,0 +1,24 @@
+.paint-app {
+  background: #ccc;
+  font-family: sans-serif;
+}
+
+.toolbar {
+  align-items: center;
+  background: gray;
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  justify-content: space-around;
+  margin: 0 auto;
+  width: 600px;
+}
+
+.paint-main {
+  margin: 0 auto;
+  width: 600px;
+}
+
+canvas {
+  background: white;
+}
