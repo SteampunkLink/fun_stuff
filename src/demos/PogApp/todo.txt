@@ -1,9 +1,0 @@
-
-> Save & Load Buttons
-> Handle Slammer Durability
-
-BUG FIXES
-> Reset Stack Array between games
-> Alert messages a bit off during gameplay
-> A miss doesn't swap turns
-> No scroll bar on pog select in game area
