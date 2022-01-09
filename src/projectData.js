@@ -33,17 +33,6 @@ const projectData = [
       'The inspiration for this struck me while working on a project from Brad Traversy in his 50 Projects Udemy course. In the project "Drink Water" the user can keep track of how much water they\'ve drank in a day by clicking on an individual glass for each glass they drink. This empties the small glass and fills up a larger one which dynamically calculates the percentage of overall water the user has drank in relation to how much they should drink. I took that concept and applied it to a to-do list which can store multiple projects. Each project can be populated with a number of tasks which all start out unfinished. The user can move them up to "in progress" and later to "finished" and the meter to the left will fill up with the proper color and give the user a percentage of tasks completed. Be aware that this sample app is a proof-of-concept and will not save data if you leave.',
   },
   {
-    id: 4,
-    title: "Generic Milk Cap Game",
-    imageSrc: "/screenShots/pogScreen.png",
-    imageAlt: "Screenshot of the milk cap game",
-    description:
-      "Relive a little bit of the joy of playing a game of p... I mean, um milk caps. So it's mostly just a clicker game here, but did anyone actually play the game as much as they just collected the little discs anyway?",
-    link: "/demo/caps",
-    moreInfo:
-      "This game ended up being a much bigger project than I had planned for any of these to be. But I'm happy with the way it's coming along. You can get free common (white) caps from the machine in the store and use them to play for higher ranked caps against an AI opponent. With better caps you can either sell them for credits to buy others and complete your collection, or wager them for even better capz. Everytime you win caps, you get points which you can use on better slammers or on the random pog vending machine. Your progress will even be stored in your browser's local storage and load when you come back.",
-  },
-  {
     id: 5,
     title: "Junk Drawer",
     imageSrc: "/screenShots/junkScreen.png",

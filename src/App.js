@@ -13,9 +13,6 @@ import ScratchState from "./demos/ScratchCards/context/scratchState";
 import TodoApp from "./demos/TodoApp/TodoApp";
 import TodoState from "./demos/TodoApp/context/TodoState";
 
-import PogApp from "./demos/PogApp/PogApp";
-import PogState from "./demos/PogApp/context/PogState";
-
 import JunkDrawerApp from "./demos/JunkDrawer/JunkDrawerApp";
 import JunkState from "./demos/JunkDrawer/context/JunkState";
 
@@ -36,7 +33,6 @@ function App() {
             path="/demo/scratchcard"
           />
           <Demo component={TodoApp} context={TodoState} path="/demo/todo" />
-          <Demo component={PogApp} context={PogState} path="/demo/caps" />
           <Demo component={JunkDrawerApp} context={JunkState} path="/demo/junkdrawer" />
         </Switch>
       </Router>
