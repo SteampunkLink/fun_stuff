@@ -33,6 +33,15 @@ const projectData = [
       'The inspiration for this struck me while working on a project from Brad Traversy in his 50 Projects Udemy course. In the project "Drink Water" the user can keep track of how much water they\'ve drank in a day by clicking on an individual glass for each glass they drink. This empties the small glass and fills up a larger one which dynamically calculates the percentage of overall water the user has drank in relation to how much they should drink. I took that concept and applied it to a to-do list which can store multiple projects. Each project can be populated with a number of tasks which all start out unfinished. The user can move them up to "in progress" and later to "finished" and the meter to the left will fill up with the proper color and give the user a percentage of tasks completed. Be aware that this sample app is a proof-of-concept and will not save data if you leave.',
   },
   {
+    id: 4,
+    title: "SPL Paint",
+    imageScr: "/screenShots/junkScreen.png",
+    imageAlt: "the wrong image as placeholder",
+    description: "A simple drawing app based on a video game.",
+    link: "/demo/splpaint",
+    moreInfo: "I really loved Mario Paint back in the day on the SNES. It's a hard game to go back to because the limitations and old hardware make it difficult to use and nearly impossible to share. But the toolset, limited as it was, made for a quaint app, so I wanted to recreate some of that functionality."
+  },
+  {
     id: 5,
     title: "Junk Drawer",
     imageSrc: "/screenShots/junkScreen.png",
