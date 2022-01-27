@@ -2,7 +2,7 @@ import { useReducer } from "react"
 import slamPucks from "./data/slamPucks"
 import { addOpponentCoinToStack, shuffle } from "./data/utilityFunctions"
 import slamContext from "./slamContext"
-import slamReducer, { CHANGE_PHASE, SELECT_PUCK, STACK_COIN, UPDATE_COLLECTION, UPDATE_CURRENCY, UPDATE_PUCKS, UPDATE_SPINNER, START_GAME } from "./slamReducer"
+import slamReducer, { CHANGE_PHASE, SELECT_PUCK, STACK_COIN, UPDATE_COLLECTION, UPDATE_CURRENCY, UPDATE_PUCKS, UPDATE_SPINNER, START_GAME, UPDATE_DISPLAY, DAMAGE_PUCK } from "./slamReducer"
 
 const SlamState = (props) => {
   const initialState = {
@@ -29,7 +29,6 @@ const SlamState = (props) => {
 
   const [state, dispatch] = useReducer(slamReducer, initialState)
   // PLAYER DATA
-
   // args newData: object that contain an array of objects with the following properties
   // id: the id of a slamcoin
   // qty: the amount of that slamcoin to add or remove from the collection
@@ -55,11 +54,15 @@ const SlamState = (props) => {
   const updatePucks = (newData) => {
     let updatedCollection = state.playerData.pucks
     const i = updatedCollection.findIndex(el => el.id === newData.id)
+
     if (i > -1) {
       updatedCollection[i].durability = newData.durability
     } else {
       updatedCollection.push({ id: newData.id, name: newData.name, durability: newData.durability })
     }
+
+    // filter out any pucks that have no durability
+    updatedCollection = updatedCollection.filter((puck) => puck.durability > 0)
 
     dispatch({ type: UPDATE_PUCKS, payload: updatedCollection })
   }
@@ -93,10 +96,11 @@ const SlamState = (props) => {
     }
     dispatch({ type: SELECT_PUCK, payload: puckCollection[foundPuck]})
   }
+
   // takes a coin id and adds it to the stack, it also adds one coin from an ai opponent onto the stack
   // args coinId: the id of the coin to be pushed onto the stack array
   const addToStack = (coinId) => {
-    // check for stack limit
+    // todo check for stack limit
     let updatedStack = state.gameData.stack
     updateCollection([{ id: coinId, qty: -1 }])
     const opponentCoin = addOpponentCoinToStack(coinId)
@@ -105,6 +109,15 @@ const SlamState = (props) => {
     dispatch({ type: STACK_COIN, payload: updatedStack })
   }
 
+  // array of coin ids to return to the stack and to shuffle the stack
+  const returnToStack = (coinArr) => {
+    let updatedStack = state.gameData.stack
+    coinArr.forEach((coin) => updatedStack.push(coin))
+    updatedStack = shuffle(updatedStack)
+    dispatch({ type: STACK_COIN, payload: updatedStack })
+  }
+
+  // removes the coin from the end of the stack
   const removeOneFromStack = () => {
     let updatedStack = state.gameData.stack
     updatedStack.pop()
@@ -116,11 +129,18 @@ const SlamState = (props) => {
   const updatePhase = (newPhase) => {
     dispatch({ type: CHANGE_PHASE, payload: newPhase })
   }
+
   // fires all the functions needed to start the game
   // creates opponent slammer, shuffles stack, updates phase
   const startGame = () => {
+    if (!state.gameData.playerSlammer.id) {
+      updateDisplay("You need to equip a slammer to play.", "red")
+      return
+    }
+    if (!state.gameData.stack.length) {
+      updateDisplay("You need to have coins on the stack to start a game.", "red")
+    }
     // populate opponent slammer
-    // todo error if no playerSlammer
     const puckIndex = parseInt(state.gameData.playerSlammer.id.split("-")[1])
     const min = puckIndex === 0 ? 0 : puckIndex - 1
     const max = puckIndex === slamPucks.length - 1 ? puckIndex : puckIndex + 1
@@ -133,13 +153,32 @@ const SlamState = (props) => {
       phase: "PlayerInput"
     }})
   }
+
+  // decrements the slammer durability in gameData and in player's collection
+  const damagePuck = () => {
+    let updatedPuck = state.gameData.playerSlammer
+    updatedPuck.durability = updatedPuck.durability === 0 ? 0 : updatedPuck.durability - 1
+    updatePucks(updatedPuck)
+    dispatch({ type: DAMAGE_PUCK, payload: updatedPuck })
+  }
+
   // DISPLAY DATA
-  // 
+  // Adds coins to the spinner coins array which will cause the spinning coin modal to appear
+  // coinArr: An array of coin objects to populate the array
+  // luck: the luck stat that will determin how often the coins will land right-side up
   const updateCoinSpinner = (coinArr, luck) => {
     let updatedData = {}
     if (coinArr) updatedData.spinnerCoins = coinArr
     if (luck) updatedData.spinnerLuck = luck
     dispatch({ type: UPDATE_SPINNER, payload: updatedData })
+  }
+
+  // update display and delete the message after five seconds
+  const updateDisplay = (message, color) => {
+    dispatch({ type: UPDATE_DISPLAY, payload: { message, color }})
+    setTimeout(() => {
+      dispatch({ type: UPDATE_DISPLAY, payload: { message: "", color: "" }})
+    }, 5000)
   }
 
   return (
@@ -152,10 +191,13 @@ const SlamState = (props) => {
       updateCurrency,
       selectPuck,
       addToStack,
+      returnToStack,
       removeOneFromStack,
       updatePhase,
       startGame,
+      damagePuck,
       updateCoinSpinner,
+      updateDisplay
     }}>
       {props.children}
     </slamContext.Provider>

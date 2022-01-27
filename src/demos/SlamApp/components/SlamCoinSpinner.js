@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from 'react'
 import SpinCoin from './SpinCoin'
 import slamContext from "../context/slamContext"
-import { addOpponentCoinToStack, flattenCoinArray, checkGameStatusAndUpdatePhase } from '../context/data/utilityFunctions'
+import { flattenCoinArray, checkGameStatusAndUpdatePhase } from '../context/data/utilityFunctions'
 
 const SlamCoinSpinner = () => {
   const SlamContext = useContext(slamContext)
-  const { gameData, displayData, updateCoinSpinner, updateCollection, updatePhase } = SlamContext
+  const { returnToStack, gameData, displayData, updateCoinSpinner, updateCollection, updateCurrency, updatePhase } = SlamContext
 
   const [modalClass, setClass] = useState("slamcoin-spinner")
   const [displayArr, setDisplayArr] = useState([])
@@ -53,8 +53,8 @@ const SlamCoinSpinner = () => {
         won.push(coin.coinId)
       }
     })
-    // todo place 'lose' coins back on the stack
-    lost.forEach((lostCoin) => addOpponentCoinToStack(lostCoin))
+    if (lost.length) { returnToStack(lost) }
+    if (gameData.phase !== "GameOver") { updateCurrency({ points: won.length }) }
     updateCollection(flattenCoinArray(won))
     let updatedData = displayData.spinnerCoins
     updatedData.splice(0, displayArr.length)

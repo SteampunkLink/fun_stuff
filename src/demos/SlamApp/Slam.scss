@@ -312,8 +312,13 @@ button {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-around;
+  max-height: 100%;
+  overflow-y: scroll;
   .coin-area {
-    margin: 8px;
+    border: #555 solid 2px;
+    height: 210px;
+    margin: 10px;
     width: 150px;
     .coin-image-bg {
       border: 1px solid white;
@@ -321,13 +326,22 @@ button {
       width: 150px;
     }
     h4 {
+      font-size: 1.1em;
       margin: 8px;
+      text-align: center;
+    }
+    h5 {
+      color: #ddd;
       text-align: center;
     }
     img {
       width: 100%;
     }
   }
+}
+
+.select-puck-btn {
+  width: 100%;
 }
 
 .game-field {

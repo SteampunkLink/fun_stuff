@@ -7,12 +7,19 @@ import machine from "../img/pogMachine.png"
 
 const Machines = () => {
   const SlamContext = useContext(slamContext)
-  const { updateCoinSpinner } = SlamContext
+  const { playerData, updateCoinSpinner, updateDisplay, updateCurrency } = SlamContext
 
   const dispenseCoins = (machine) => {
+    if (machine === "1 Pack" && playerData.points < 5) {
+      updateDisplay("You don't have enough points", "red")
+      return
+    }
     let newCoins = []
     if (machine === "5 Pogs") { newCoins = getRandomCoins(CoinsMasterList[0], 5) }
-    if (machine === "1 Pack") { newCoins = getBoosterPack(5) }
+    if (machine === "1 Pack") { 
+      updateCurrency({ points: -5 })
+      newCoins = getBoosterPack(5) 
+    }
     updateCoinSpinner(newCoins, 100)
   }
 
