@@ -52,6 +52,15 @@ const projectData = [
     moreInfo:
       "Had to replace my Macbook Air recently and discovered that Apple killed the dashboard. I was very sad about this. I loved having a little place to store things I use a lot like the weather widget, calculator, and the calendar. And how useful were those sticky notes? I loved having a dedicated place to store them and jot down little notes to myself whever I needed to. Sure they're still on the desktop, but those get covered with windows and stuff. It's just not the same. I wanted to recreate some of the functionality of those widgets with this app. \n\nThis application will save events and sticky notes to your browsers local storage as well as the widget locations so you should be able to open this on the same browser without losing data. But maybe don't use this for anything too important, just in case. I'd like to try turning this into a desktop app with electron someday.",
   },
+  {
+    id: 6,
+    title: "SlamCoin",
+    imageScr: "/screenShots/junkScreen.png",
+    imageAlt: "the wrong image as placeholder",
+    description: "Relive the wonderful world of Po... I mean... generic milkcap games. Yeah, that's it.",
+    link: "/demo/slamcoin",
+    moreInfo: "This is my third or so attempt at making a simple digital recreation of a collectable milkcap game that I'm calling SlamCoins. It may not be the next thing in cryptocurrency, but at least it won't scam you out of any money or ruin the envirornment as much."
+  }
 ];
 
 export default projectData;

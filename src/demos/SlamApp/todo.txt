@@ -1,0 +1,10 @@
+
+> Make the Game
+
+> Collection: Make scrollable, space better, show quantity
+
+> Graphics: Menu Icons
+
+BUGS
+
+> Points don't deduct when using vending machines
