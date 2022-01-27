@@ -27,8 +27,10 @@ const Pucks = ({puck}) => {
             className="coin-image-bg" 
             style={{ borderRadius: "50%", background: puckData.hexCode }}
           >
+            {puck.durability}
           </div>
           <button 
+            className="select-puck-btn"
             disabled={gameData.playerSlammer?.id === puck.id} 
             onClick={() => handleSlammerSelect(puck.id)}
           >

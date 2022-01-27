@@ -20,7 +20,7 @@ const Coin = ({coin}) => {
             style={{ borderRadius: "50%", background: slamLevels[coinData.level].hexCode }}
           >
             <img src={`${process.env.PUBLIC_URL}/${coinData.category}/${coinData.img}.png`} alt={coinData.name} />
-            <div><h5>x{coin.qty}</h5><span>{slamLevels[coinData.level].color}</span></div>
+            <div><h5>x{coin.qty} - {slamLevels[coinData.level].color}</h5></div>
           </div>
         </Fragment>
       )}

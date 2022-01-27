@@ -6,6 +6,8 @@ export const STACK_COIN = "STACK_COIN"
 export const CHANGE_PHASE = "CHANGE_PHASE"
 export const SELECT_PUCK = "SELECT_PUCK"
 export const START_GAME = "START_GAME"
+export const UPDATE_DISPLAY = "UPDATE_DISPLAY"
+export const DAMAGE_PUCK = "DAMAGE_PUCK"
 
 const slamReducer = (state, action) => {
   switch (action.type) {
@@ -71,6 +73,22 @@ const slamReducer = (state, action) => {
         gameData: {
           ...state.gameData,
           ...action.payload
+        }
+      }
+    case UPDATE_DISPLAY:
+      return {
+        ...state,
+        displayData: {
+          ...state.displayData,
+          display: action.payload
+        }
+      }
+    case DAMAGE_PUCK:
+      return {
+        ...state,
+        gameData: {
+          ...state.gameData,
+          playerSlammer: action.payload
         }
       }
     default:

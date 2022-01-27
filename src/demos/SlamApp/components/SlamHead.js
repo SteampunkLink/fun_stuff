@@ -3,7 +3,7 @@ import slamContext from '../context/slamContext'
 
 const SlamHead = ({ active, handleSelect }) => {
   const SlamContext = useContext(slamContext)
-  const { playerData, gameData } = SlamContext
+  const { playerData, gameData, displayData } = SlamContext
 
   return (
     <div className="slam-head">
@@ -14,7 +14,9 @@ const SlamHead = ({ active, handleSelect }) => {
         <span onClick={() => handleSelect("game")} className={active === "game" ? 'active' : 'mode-select'}>G</span>
       </div>
       <div className="line-2">
-
+        <h3 className="display-message" style={{ color: displayData.display.color }}>
+          { displayData.display.message }
+        </h3>
       </div>
       <div className="line-3">
         <span className="points-display">Points: {playerData.points}</span>
