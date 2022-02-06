@@ -21,6 +21,9 @@ import PaintApp from "./demos/PaintApp/PaintApp"
 import SlamApp from "./demos/SlamApp/SlamApp"
 import SlamState from "./demos/SlamApp/context/SlamState"
 
+import PomodoroApp from "./demos/PomodoroPlus/PomodoroApp"
+import PomState from "./demos/PomodoroPlus/context/PomState"
+
 function App() {
   return (
     <div className="App">
@@ -41,6 +44,7 @@ function App() {
           <Demo component={JunkDrawerApp} context={JunkState} path="/demo/junkdrawer" />
           <Demo component={PaintApp} context={Fragment} path="/demo/splpaint" />
           <Demo component={SlamApp} context={SlamState} path="/demo/slamcoin" />
+          <Demo component={PomodoroApp} context={PomState} path="/demo/pomodoro" />
         </Switch>
       </Router>
     </div>

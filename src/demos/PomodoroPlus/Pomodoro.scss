@@ -1,0 +1,201 @@
+#pomodoro-app {
+  background: rgb(52, 46, 159);
+  background: linear-gradient(
+    90deg,
+    rgba(52, 46, 159, 1) 0%,
+    rgba(147, 20, 203, 1) 40%,
+    rgba(171, 56, 56, 1) 60%,
+    rgba(191, 124, 29, 1) 90%,
+    rgba(120, 252, 69, 1) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+.pom-btn {
+  background: #333;
+  border: #ccc solid 2px;
+  border-radius: 25px;
+  color: #ccc;
+  display: block;
+  font-size: 2.3em;
+  padding: 18px;
+  margin: 15px auto;
+  width: 40%;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+
+  .toggle-slider:before {
+    position: absolute;
+    content: '';
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+
+  input:checked + .toggle-slider {
+    background-color: #2196f3;
+  }
+
+  input:focus + .toggle-slider {
+    box-shadow: 0 0 1px #2196f3;
+  }
+
+  input:checked + .toggle-slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+}
+
+.settings-menu {
+  height: 80vh;
+  overflow-y: scroll;
+}
+
+.settings-section {
+  border: 2px #000 solid;
+  margin: 0 auto;
+  padding: 15px;
+  width: 60%;
+}
+
+.settings-field-group {
+  border-bottom: #555 solid 2px;
+  display: flex;
+  flex-direction: row;
+  margin: 8px;
+  padding: 8px;
+}
+
+.settings-field-group-left {
+  align-items: center;
+  border-right: #555 solid 2px;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8em;
+  width: 35%;
+  h2 {
+    font-size: 1.5em;
+    padding-bottom: 8px;
+  }
+}
+
+.settings-field-group-right {
+  font-size: 1.2em;
+  width: 65%;
+}
+
+.settings-field {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 8px;
+}
+
+.cycle-list {
+  border-bottom: black solid 5px;
+}
+
+.single-cycle {
+  border-bottom: black solid 3px;
+}
+
+.cycle-segment {
+  border-bottom: black dashed 2px;
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.control-btns {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  button {
+    background: rgba(41, 38, 3, 0.5);
+    border-radius: 25px;
+    color: white;
+    display: block;
+    font-weight: bold;
+    margin: 5px;
+    padding: 5px 10px;
+  }
+  .btn-h1 {
+    font-size: 1.5em;
+  }
+  .btn-h3 {
+    font-size: 1.2em;
+    height: 45px;
+    width: 45px;
+  }
+}
+
+.segment-text {
+  background: #333;
+  color: #ccc;
+  font-size: 1.5em;
+  padding: 5px;
+}
+
+.timer-area {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.clock-container {
+  margin: 5px auto;
+  width: 50%;
+}
+
+.base-timer_circle {
+  fill: black
+}
+
+.time-elasped {
+  stroke-width: 5px;
+}
+
+.time-remaining {
+  stroke-width: 5px;
+  stroke-linecap: round;
+  transform: rotate(90deg);
+  transform-origin: center;
+  transition: 1s linear all;
+  fill-rule: nonzero;
+  stroke: currentColor;
+}

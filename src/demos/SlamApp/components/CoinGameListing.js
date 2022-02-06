@@ -27,7 +27,7 @@ const CoinGameListing = ({ coin, qty }) => {
         <div>
           <span>...</span>
           <span>x{qty}</span>
-          <button onClick={() => handleAdd(coinData.id)}>Add to Stack</button>
+          <button className="slam-btn" onClick={() => handleAdd(coinData.id)}>Add to Stack</button>
         </div>
       </div>)}
     </div>

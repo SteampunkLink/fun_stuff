@@ -35,7 +35,7 @@ const projectData = [
   {
     id: 4,
     title: "SPL Paint",
-    imageScr: "/screenShots/junkScreen.png",
+    imageSrc: "/screenShots/junkScreen.png",
     imageAlt: "the wrong image as placeholder",
     description: "A simple drawing app based on a video game.",
     link: "/demo/splpaint",
@@ -55,10 +55,19 @@ const projectData = [
   {
     id: 6,
     title: "SlamCoin",
-    imageScr: "/screenShots/junkScreen.png",
-    imageAlt: "the wrong image as placeholder",
-    description: "Relive the wonderful world of Po... I mean... generic milkcap games. Yeah, that's it.",
+    imageSrc: "/screenShots/slamCoin.png",
+    imageAlt: "Screenshot of SlamCoin app featuring a collection of various-colored Slam Coins.",
+    description: "Relive the wonderful world of Po... I mean... SlamCoins. Yeah, that's it.",
     link: "/demo/slamcoin",
+    moreInfo: "This is my third or so attempt at making a simple digital recreation of a collectable milkcap game that I'm calling SlamCoins. It may not be the next thing in cryptocurrency, but at least it won't scam you out of any money or ruin the envirornment as much."
+  },
+  {
+    id: 7,
+    title: "Pomodoro Plus",
+    imageSrc: "/screenShots/slamCoin.png",
+    imageAlt: "the wrong image as placeholder",
+    description: "A timer based on the Pomodoro technique but with lots of customizations.",
+    link: "/demo/pomodoro",
     moreInfo: "This is my third or so attempt at making a simple digital recreation of a collectable milkcap game that I'm calling SlamCoins. It may not be the next thing in cryptocurrency, but at least it won't scam you out of any money or ruin the envirornment as much."
   }
 ];
