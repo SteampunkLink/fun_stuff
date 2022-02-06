@@ -6,6 +6,7 @@ const Projects = () => {
   const [projects] = useState(projectData);
   return (
     <div className="container">
+      {console.log(projects)}
       <header>
         <h1>Fun Stuff by SP Link</h1>
       </header>

@@ -28,11 +28,11 @@ const Machines = () => {
       <div className="store-machines">
         <div className="store-dispenser">
           <img src={machine} alt="simply drawn digipog dispensing machine filled with white digipogs" />
-          <button onClick={() => dispenseCoins("5 Pogs")}>Get 5 White SlamCoins <br />(FREE!)</button>
+          <button className="slam-btn" onClick={() => dispenseCoins("5 Pogs")}>Get 5 White SlamCoins <br />(FREE!)</button>
         </div>
         <div className="store-dispenser">
           <img src={machine} alt="simply drawn digipog dispensing machine filled with white digipogs" />
-          <button onClick={() => dispenseCoins("1 Pack")}>Get Digipog Booster Pack <br />(5 Points)</button>
+          <button className="slam-btn" onClick={() => dispenseCoins("1 Pack")}>Get Digipog Booster Pack <br />(5 Points)</button>
         </div>
       </div>
     </div>

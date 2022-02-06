@@ -71,7 +71,7 @@ const SlamCoinSpinner = () => {
           ))}
         </div>
         {isDoneSpinning && (
-          <button onClick={() => resetModal(gameData)}>
+          <button className="slam-btn" onClick={() => resetModal(gameData)}>
             {`${gameData.gamePhase !== "OpponentTurn" ? "Collect" : "Too Bad"}`}
           </button>
         )}

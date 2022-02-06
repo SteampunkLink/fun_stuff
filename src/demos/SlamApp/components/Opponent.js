@@ -9,7 +9,7 @@ const Opponent = ({ opponentSlam }) => {
   return (
     <div>
       OPPONENT TURN
-      <button onClick={() => handleOpponentSlam()}>Okay</button>
+      <button className="slam-btn" onClick={() => handleOpponentSlam()}>Okay</button>
     </div>
   )
 }

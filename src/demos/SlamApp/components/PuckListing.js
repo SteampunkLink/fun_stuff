@@ -41,7 +41,7 @@ const PuckListing = ({ item }) => {
         <span className="color-button" style={{ background: item.hexCode }}></span>
         <h4>{item.name}</h4>
         <span>...</span>
-        <button disabled={btn1Disable} onClick={() => buyOne()}>{btn1Text}</button>
+        <button className="slam-btn" disabled={btn1Disable} onClick={() => buyOne()}>{btn1Text}</button>
       </div>
     </div>
   )
