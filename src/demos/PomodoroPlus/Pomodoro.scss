@@ -20,9 +20,9 @@
   border-radius: 25px;
   color: #ccc;
   display: block;
-  font-size: 2.3em;
-  padding: 18px;
-  margin: 15px auto;
+  font-size: 2em;
+  padding: 8px;
+  margin: 10px auto;
   width: 40%;
 }
 
@@ -198,4 +198,21 @@
   transition: 1s linear all;
   fill-rule: nonzero;
   stroke: currentColor;
+}
+
+.reminders-area {
+  background: black;
+  color: white;
+  margin-bottom: 10px;
+  padding: 8px;
+  text-align: center;
+  width: 30%;
+  h4 {
+    font-size: 1.8em;
+  };
+  ul li {
+    font-size: 1.4em;
+    list-style: disc inside;
+    padding: 8px;
+  }
 }
