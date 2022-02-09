@@ -4,9 +4,15 @@ import CountdownClock from './CountdownClock'
 const Timer = () => {
   const [counter, countUp] = useState(0)
   const [isTicking, toggleTicking] = useState(false)
+  const [reminders, setReminders] = useState([])
 
   const handleTimerToggle = () => {
     toggleTicking(!isTicking)
+  }
+
+  const receiveReminders = (remindersArr) => {
+    console.log(remindersArr)
+    setReminders(remindersArr)
   }
 
   useEffect(() => {
@@ -24,9 +30,19 @@ const Timer = () => {
     }
   }, [isTicking])
 
+  
+
   return (
     <div className="timer-area">
-      <CountdownClock counter={counter} />
+      <CountdownClock counter={counter} handleReminders={receiveReminders} />
+      {(isTicking && reminders.length) && (<div className="reminders-area">
+        <h4>Don't Forget!</h4>
+        <ul>
+        {reminders.map((reminder, idx) => {
+          return (<li key={idx} className="reminder-text">{reminder}</li>)
+        })}
+        </ul>
+      </div>)}
       <div className="timer-controls">
         <button onClick={() => handleTimerToggle()}>Play/Pause</button>
         <button>Reset</button>

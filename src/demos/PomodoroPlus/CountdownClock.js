@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useContext, useState } from 'react'
 import pomContext from './context/pomContext'
 
-const CountdownClock = ({ counter }) => {
+const CountdownClock = ({ counter, handleReminders }) => {
   const PomContext = useContext(pomContext)
   const { cycleList } = PomContext
 
@@ -103,6 +103,13 @@ const CountdownClock = ({ counter }) => {
     }
     // eslint-disable-next-line
   }, [counter])
+
+  useEffect(() => {
+    if (cycleList[clockProps.currentCycle][clockProps.currentSegment][2]) {
+      handleReminders(cycleList[clockProps.currentCycle][clockProps.currentSegment][2])
+    }
+    // eslint-disable-next-line
+  }, [clockProps.currentSegment])
 
   return ( 
     <svg className="clock-container" viewBox="0 0 100 100">
